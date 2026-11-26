@@ -218,77 +218,88 @@
       <span class="mono sec-no">§ 05</span>
       <h2 class="display">Experience</h2>
     </header>
-    <!-- EDIT: roles newest first. data-start / data-end (YYYY-MM) drive the duration label;
-         leave data-end off for a current role. -->
-    <ol class="timeline">
-      <li class="rv">
-        <div class="when mono"><span>Aug 2025 — Present</span><span class="dur" data-start="2025-08"></span></div>
-        <div>
-          <h3 class="serif">Associate Software Engineer · <span>Inkey IT Solutions</span></h3>
-          <p class="role-tags mono"><span>Data Analytics &amp; Power BI</span><span>Full-time</span><span class="promo">↑ Converted from internship</span></p>
-          <ul class="role-points">
-            <li>Deliver interactive Power BI dashboards and KPI reports for 3+ international clients in import/export, e-commerce and marketing, with 20+ dashboards built to date.</li>
-            <li>Act as the primary client-facing contact on several projects, owning requirement calls, meetings and email updates through to delivery.</li>
-            <li>Built year-over-year and customer-comparison sales dashboards for import/export clients, cutting 5–10 hours of manual weekly or monthly analysis to under 10 minutes.</li>
-            <li>Created performance dashboards for e-commerce retailers and wholesalers, replacing manual collection of figures from each partner.</li>
-            <li>Design and maintain data models in DAX, run ETL and data cleaning in Power Query, and automate repetitive tasks with AI tools.</li>
-            <li>Work with data from Business Central, Power Apps CRM, SQL and APIs across Sales, Finance, B2B and B2C projects.</li>
-          </ul>
-          <p class="role-stack mono">Power BI · DAX · Power Query · SQL · Microsoft Fabric · Business Central · Power Apps CRM · APIs</p>
-        </div>
-      </li>
-      <li class="rv">
-        <div class="when mono"><span>Jan 2025 — Jul 2025</span><span class="dur" data-start="2025-01" data-end="2025-07"></span></div>
-        <div>
-          <h3 class="serif">Data Analyst Intern · <span>Inkey IT Solutions</span></h3>
-          <p class="role-tags mono"><span>Internship</span></p>
-          <ul class="role-points">
-            <li>Performed data analysis and built Power BI reports.</li>
-          </ul>
-        </div>
-      </li>
-      <li class="rv">
-        <div class="when mono"><span>May 2024</span><span class="dur" data-start="2024-05" data-end="2024-05"></span></div>
-        <div>
-          <h3 class="serif">Flutter Developer Intern · <span>TechnoGuide Pvt. Ltd.</span></h3>
-          <p class="role-tags mono"><span>Internship</span></p>
-        </div>
-      </li>
-    </ol>
 
-    <p class="mono label sub-label rv">Freelance</p>
-    <ol class="timeline">
-      <li class="rv">
-        <div class="when mono"><span>2026 — Present</span></div>
-        <div>
-          <h3 class="serif">Co-founder · <span>vscodelabs</span></h3>
-          <p class="role-tags mono"><span>Freelance</span><span>Alongside full-time role</span></p>
-          <ul class="role-points">
-            <li>Deliver paid web and app projects in a team of 3–4 developers, coordinating tasks within the team; built with AI tools and Supabase.</li>
-          </ul>
-          <!-- EDIT: one <li> per client project -->
-          <ul class="client-work">
-            <li><span class="cw-type mono">E-commerce</span><a class="cw-name" href="https://apparel60.co.in/" target="_blank" rel="noopener">apparel60.co.in <span aria-hidden="true">↗</span></a><span class="cw-desc">Full clothing store with cart and online payments</span></li>
-            <li><span class="cw-type mono">Operations app</span><span class="cw-name">Manufacturing Operations App</span><span class="cw-desc">Production tracking, stock, shipping, attendance and payroll for a pipe manufacturer, with POS integration</span></li>
-            <li><span class="cw-type mono">Food ordering</span><span class="cw-name">Café Ordering Website</span><span class="cw-desc">Online ordering and takeout for a café client in Australia, with Uber Direct delivery and POS integration</span></li>
-            <li><span class="cw-type mono">AI app</span><span class="cw-name">MV Bot</span><span class="cw-desc">AI chatbot app</span></li>
-            <li><span class="cw-type mono">Booking system</span><span class="cw-name">Appointment Checker</span><span class="cw-desc">End-to-end appointment system for salons, doctors and other services</span></li>
-            <li><span class="cw-type mono">Portfolio</span><span class="cw-name">Doctor's Portfolio</span><span class="cw-desc">Portfolio app for a doctor's practice</span></li>
-          </ul>
-        </div>
-      </li>
-    </ol>
+    <!-- Fig. 4: the career line is drawn by assets/js/main.js (stations are listed there under "EDIT") -->
+    <div class="xp-legend rv" aria-hidden="true">
+      <span><i class="sw sw-edu"></i>Education</span>
+      <span><i class="sw sw-int"></i>Internship</span>
+      <span><i class="sw sw-full"></i>Full-time</span>
+      <span><i class="sw sw-free"></i>Freelance</span>
+      <span><i class="sw sw-dia"></i>Certification</span>
+    </div>
+    <figure class="metro-fig rv">
+      <div class="metro" id="metro"></div>
+      <figcaption class="fig-foot mono"><span>Fig. 4 — career line, stations in order (not to scale)</span><span>Tap a station for details</span></figcaption>
+    </figure>
 
-    <p class="mono label sub-label rv">Education</p>
-    <ol class="timeline">
-      <li class="rv">
-        <div class="when mono"><span>2021 — 2025</span></div>
-        <div>
-          <h3 class="serif">B.E. in Computer Engineering · <span>CVM University</span></h3>
-          <p class="edu-inst">Madhuben and Bhanubhai Patel Women Institute of Engineering for Studies and Research in Computer and Communication Technology, Anand, Gujarat</p>
+    <!-- EDIT: one card per role. data-start / data-end (YYYY-MM) drive the duration label; leave data-end off for a current role. -->
+    <div class="xp-cards">
+
+      <article class="xp-card xp-wide rv" id="xp-ase">
+        <div class="xp-top">
+          <div><h3 class="serif">Associate Software Engineer</h3><p class="xp-org serif">Inkey IT Solutions</p></div>
+          <p class="xp-when mono">Aug 2025 — Present<span class="dur" data-start="2025-08"></span></p>
         </div>
-      </li>
-    </ol>
+        <p class="role-tags mono"><span>Data Analytics &amp; Power BI</span><span>Full-time</span><span class="promo">↑ Converted from internship</span></p>
+        <ul class="role-points">
+          <li>Deliver interactive Power BI dashboards and KPI reports for 3+ international clients in import/export, e-commerce and marketing, with 20+ dashboards built to date.</li>
+          <li>Act as the primary client-facing contact on several projects, owning requirement calls, meetings and email updates through to delivery.</li>
+          <li>Built year-over-year and customer-comparison sales dashboards for import/export clients, cutting 5–10 hours of manual weekly or monthly analysis to under 10 minutes.</li>
+          <li>Created performance dashboards for e-commerce retailers and wholesalers, replacing manual collection of figures from each partner.</li>
+          <li>Design and maintain data models in DAX, run ETL and data cleaning in Power Query, and automate repetitive tasks with AI tools.</li>
+          <li>Work with data from Business Central, Power Apps CRM, SQL and APIs across Sales, Finance, B2B and B2C projects.</li>
+        </ul>
+        <p class="role-stack mono">Power BI · DAX · Power Query · SQL · Microsoft Fabric · Business Central · Power Apps CRM · APIs</p>
+      </article>
+
+      <article class="xp-card xp-wide rv" id="xp-vsc">
+        <div class="xp-top">
+          <div><h3 class="serif">Co-founder</h3><p class="xp-org serif">vscodelabs</p></div>
+          <p class="xp-when mono">2026 — Present<span class="dur">Ongoing</span></p>
+        </div>
+        <p class="role-tags mono"><span>Freelance</span><span>Alongside full-time role</span></p>
+        <ul class="role-points">
+          <li>Deliver paid web and app projects in a team of 3–4 developers, coordinating tasks within the team; built with AI tools and Supabase.</li>
+        </ul>
+        <ul class="client-work">
+          <li><span class="cw-type mono">E-commerce</span><a class="cw-name" href="https://apparel60.co.in/" target="_blank" rel="noopener">apparel60.co.in <span aria-hidden="true">↗</span></a><span class="cw-desc">Full clothing store with cart and online payments</span></li>
+          <li><span class="cw-type mono">Operations app</span><span class="cw-name">Manufacturing Operations App</span><span class="cw-desc">Production tracking, stock, shipping, attendance and payroll for a pipe manufacturer, with POS integration</span></li>
+          <li><span class="cw-type mono">Food ordering</span><span class="cw-name">Café Ordering Website</span><span class="cw-desc">Online ordering and takeout for a café client in Australia, with Uber Direct delivery and POS integration</span></li>
+          <li><span class="cw-type mono">AI app</span><span class="cw-name">MV Bot</span><span class="cw-desc">AI chatbot app</span></li>
+          <li><span class="cw-type mono">Booking system</span><span class="cw-name">Appointment Checker</span><span class="cw-desc">End-to-end appointment system for salons, doctors and other services</span></li>
+          <li><span class="cw-type mono">Portfolio</span><span class="cw-name">Doctor's Portfolio</span><span class="cw-desc">Portfolio app for a doctor's practice</span></li>
+        </ul>
+      </article>
+
+      <article class="xp-card rv" id="xp-int">
+        <div class="xp-top">
+          <div><h3 class="serif">Data Analyst Intern</h3><p class="xp-org serif">Inkey IT Solutions</p></div>
+          <p class="xp-when mono">Jan 2025 — Jul 2025<span class="dur" data-start="2025-01" data-end="2025-07"></span></p>
+        </div>
+        <p class="role-tags mono"><span>Internship</span></p>
+        <ul class="role-points">
+          <li>Performed data analysis and built Power BI reports; converted to full-time in August 2025.</li>
+        </ul>
+      </article>
+
+      <article class="xp-card rv d1" id="xp-flu">
+        <div class="xp-top">
+          <div><h3 class="serif">Flutter Developer Intern</h3><p class="xp-org serif">TechnoGuide Pvt. Ltd.</p></div>
+          <p class="xp-when mono">May 2024<span class="dur" data-start="2024-05" data-end="2024-05"></span></p>
+        </div>
+        <p class="role-tags mono"><span>Internship</span></p>
+      </article>
+
+      <article class="xp-card rv d2" id="xp-edu">
+        <div class="xp-top">
+          <div><h3 class="serif">B.E. in Computer Engineering</h3><p class="xp-org serif">CVM University</p></div>
+          <p class="xp-when mono">2021 — 2025<span class="dur">4 years</span></p>
+        </div>
+        <p class="role-tags mono"><span>Education</span></p>
+        <p class="edu-inst">Madhuben and Bhanubhai Patel Women Institute of Engineering for Studies and Research in Computer and Communication Technology, Anand, Gujarat</p>
+      </article>
+
+    </div>
   </section>
 
   <!-- ============ 06 CERTIFICATIONS ============ -->
