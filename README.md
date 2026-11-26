@@ -18,8 +18,9 @@ The chart numbers in Fig. 1 are at the `// EDIT:` comment in `assets/js/main.js`
 
 - **Photo:** add `assets/img/photo.jpg` and swap it in where the About section says so.
 - **Résumé:** add `assets/resume.pdf` and point the Résumé link at it.
-- **Certificates:** copy one `<article class="cert">` block per certificate and
-  remove the `placeholder` class.
+- **Certifications:** copy one `<article class="cert">` block (newest first), put the
+  certificate image in `assets/img/certs/`, and set `data-expires` so the "Active" label
+  hides itself once it lapses.
 
 ## Preview locally
 

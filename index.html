@@ -27,7 +27,7 @@
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
-      <a href="#certificates">Certificates</a>
+      <a href="#certificates">Certifications</a>
       <a href="#contact" class="nav-cta">Contact</a>
     </nav>
   </div>
@@ -59,6 +59,7 @@
     <dl class="facts rv">
       <div><dt class="mono">Based in</dt><dd>City, Country</dd></div>
       <div><dt class="mono">Works with</dt><dd>SQL · Python · Power BI</dd></div>
+      <div><dt class="mono">Certified</dt><dd><a class="fact-link" href="#certificates"><img src="assets/img/certs/microsoft-certified-associate-badge.svg" alt="" width="22" height="22">2× Microsoft Associate</a></dd></div>
       <div><dt class="mono">Status</dt><dd><i class="dot" aria-hidden="true"></i>Open to analyst roles</dd></div>
     </dl>
   </section>
@@ -234,19 +235,69 @@
     </ol>
   </section>
 
-  <!-- ============ 06 CERTIFICATES ============ -->
+  <!-- ============ 06 CERTIFICATIONS ============ -->
   <section id="certificates" class="sec wrap">
     <header class="sec-head rv">
       <span class="mono sec-no">§ 06</span>
-      <h2 class="display">Certificates &amp; education</h2>
+      <h2 class="display">Certifications</h2>
     </header>
-    <!-- EDIT: certificates will be added later; copy one .cert block per certificate -->
+    <!-- To add one: copy an <article class="cert"> block (newest first) and put its image in assets/img/certs/.
+         data-expires (YYYY-MM-DD) controls the "Active" label. -->
     <div class="certs">
-      <article class="cert placeholder rv"><p class="mono">Issuer · Year</p><h3 class="serif">Certificate title</h3><a class="link mono" href="#">View credential →</a></article>
-      <article class="cert placeholder rv d1"><p class="mono">Issuer · Year</p><h3 class="serif">Certificate title</h3><a class="link mono" href="#">View credential →</a></article>
-      <article class="cert placeholder rv d2"><p class="mono">University · Year</p><h3 class="serif">Degree, Subject</h3><span class="link mono">Education</span></article>
+
+      <article class="cert rv" data-expires="2027-10-18">
+        <button class="cert-img" type="button" data-full="assets/img/certs/fabric-analytics-engineer.jpg">
+          <img src="assets/img/certs/fabric-analytics-engineer.jpg" alt="Microsoft Certified: Fabric Analytics Engineer Associate certificate, issued to Vedant Chauhan on October 18, 2026" width="874" height="563" loading="lazy" decoding="async">
+          <span class="cert-zoom mono">View full size ⤢</span>
+        </button>
+        <div class="cert-body">
+          <p class="cert-meta mono"><span>Microsoft · Exam DP-600</span><span class="cert-status"><i class="dot" aria-hidden="true"></i>Active</span></p>
+          <h3 class="serif">Fabric Analytics Engineer <em>Associate</em></h3>
+          <ul class="cert-skills">
+            <li>Maintain a data analytics solution</li>
+            <li>Prepare data</li>
+            <li>Implement and manage semantic models</li>
+          </ul>
+          <dl class="cert-facts mono">
+            <div><dt>Earned</dt><dd>Oct 18, 2026</dd></div>
+            <div><dt>Valid until</dt><dd>Oct 18, 2027</dd></div>
+            <div><dt>Credential ID</dt><dd>1A42CDDD09A87D16</dd></div>
+          </dl>
+          <a class="link" href="https://learn.microsoft.com/api/credentials/share/en-us/VedantChauhan-6213/1A42CDDD09A87D16?sharingId=C0E295FF82E374A2" target="_blank" rel="noopener">Verify on Microsoft Learn <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+
+      <article class="cert rv d1" data-expires="2027-07-26">
+        <button class="cert-img" type="button" data-full="assets/img/certs/sql-ai-developer.jpg">
+          <img src="assets/img/certs/sql-ai-developer.jpg" alt="Microsoft Certified: SQL AI Developer Associate certificate, issued to Vedant Chauhan on July 26, 2026" width="874" height="563" loading="lazy" decoding="async">
+          <span class="cert-zoom mono">View full size ⤢</span>
+        </button>
+        <div class="cert-body">
+          <p class="cert-meta mono"><span>Microsoft · Exam DP-800</span><span class="cert-status"><i class="dot" aria-hidden="true"></i>Active</span></p>
+          <h3 class="serif">SQL AI Developer <em>Associate</em></h3>
+          <ul class="cert-skills">
+            <li>Design and develop database solutions</li>
+            <li>Secure, optimize and deploy database solutions</li>
+            <li>Implement AI capabilities in SQL solutions</li>
+          </ul>
+          <dl class="cert-facts mono">
+            <div><dt>Earned</dt><dd>Jul 26, 2026</dd></div>
+            <div><dt>Valid until</dt><dd>Jul 26, 2027</dd></div>
+            <div><dt>Credential ID</dt><dd>6954ED3BB87CF88</dd></div>
+          </dl>
+          <a class="link" href="https://learn.microsoft.com/api/credentials/share/en-us/VedantChauhan-6213/6954ED3BB87CF88?sharingId=C0E295FF82E374A2" target="_blank" rel="noopener">Verify on Microsoft Learn <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+
     </div>
   </section>
+
+  <!-- full-size certificate viewer -->
+  <dialog class="lightbox" id="lightbox" aria-label="Certificate">
+    <form method="dialog"><button class="lb-close mono" type="submit">Close ✕</button></form>
+    <img src="" alt="">
+    <p class="lb-cap mono"></p>
+  </dialog>
 
   <!-- ============ 07 CONTACT ============ -->
   <section id="contact" class="contact wrap">

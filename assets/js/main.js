@@ -125,6 +125,27 @@
     t = setTimeout(() => { if (innerWidth !== rw) { rw = innerWidth; drawChart(); } }, 150);
   });
 
+  /* ---------- certifications: "Active" label + full-size viewer ---------- */
+  const now = new Date();
+  $$('.cert[data-expires]').forEach(c => {
+    const st = $('.cert-status', c);
+    if (st && new Date(`${c.dataset.expires}T23:59:59`) >= now) st.classList.add('on');
+  });
+  const lb = $('#lightbox');
+  $$('.cert-img').forEach(btn => {
+    const thumb = $('img', btn);
+    btn.setAttribute('aria-label', `View full size: ${thumb.alt}`);
+    btn.addEventListener('click', () => {
+      if (!lb || typeof lb.showModal !== 'function') { window.open(btn.dataset.full, '_blank', 'noopener'); return; }
+      const big = $('img', lb);
+      big.src = btn.dataset.full;
+      big.alt = thumb.alt;
+      $('.lb-cap', lb).textContent = thumb.alt;
+      lb.showModal();
+    });
+  });
+  if (lb) lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
+
   /* ---------- Fig. 2: before / after slider ---------- */
   const ba = $('#ba');
   if (ba) {
