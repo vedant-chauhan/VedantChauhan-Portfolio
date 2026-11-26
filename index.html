@@ -22,13 +22,10 @@
     <button class="menu-btn mono" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav id="nav" class="nav mono" aria-label="Main">
       <a href="#work">Work</a>
-      <a href="#process">Process</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
-      <a href="#certificates">Certifications</a>
-      <a href="#writing">Writing</a>
-      <a href="#contact" class="nav-cta">Contact</a>
+      <a href="#credentials">Credentials</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -37,28 +34,25 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero wrap">
-    <p class="kicker mono rv">Portfolio · Vol. 1 · 2026</p>
-    <h1 class="display hero-title rv d1">I find the <em class="mark">story<svg class="scribble" viewBox="0 0 300 26" preserveAspectRatio="none" aria-hidden="true"><path d="M4 18 C 70 6, 130 22, 190 12 S 272 6, 296 15"/></svg><span class="mark-note" aria-hidden="true"><svg class="mark-arrow" viewBox="0 0 64 56"><path class="shaft" d="M60 4 C 42 6, 16 18, 6 50"/><path class="head" d="M6 50 l-3 -12 M6 50 l10 -7"/></svg><span class="mark-note-text">usually hiding<br>somewhere around row 4,812</span></span></em> inside your data.</h1>
+    <h1 class="display hero-title rv">I find the <em class="mark">story<svg class="scribble" viewBox="0 0 300 26" preserveAspectRatio="none" aria-hidden="true"><path d="M4 18 C 70 6, 130 22, 190 12 S 272 6, 296 15"/></svg><span class="mark-note" aria-hidden="true"><svg class="mark-arrow" viewBox="0 0 64 56"><path class="shaft" d="M60 4 C 42 6, 16 18, 6 50"/><path class="head" d="M6 50 l-3 -12 M6 50 l10 -7"/></svg><span class="mark-note-text">usually hiding<br>somewhere around row 4,812</span></span></em> inside your data.</h1>
 
-    <div class="hero-foot">
-      <div class="rv d2">
-        <!-- EDIT: your one-line intro -->
-        <p class="lede"><b>Vedant Chauhan</b> is a data analyst and Power BI developer. He has built 20+ dashboards for 3+ international clients, from the first requirement call to delivery.</p>
-        <div class="cta">
-          <a class="btn btn-ink" href="#work">See my work <span aria-hidden="true">→</span></a>
-          <a class="btn" href="#contact">Get in touch</a>
-          <a class="btn btn-ghost" href="assets/docs/Vedant_Chauhan_Resume.pdf" target="_blank" rel="noopener">Résumé <span aria-hidden="true">↗</span></a>
-        </div>
+    <div class="hero-foot rv d1">
+      <p class="lede"><b>Vedant Chauhan</b> is a data analyst and Power BI developer who owns BI delivery, from the client's first requirement call to the finished dashboard.</p>
+      <div class="cta">
+        <a class="btn btn-ink" href="#work">See my work <span aria-hidden="true">→</span></a>
+        <a class="btn" href="#contact">Get in touch</a>
+        <a class="btn btn-ghost" href="assets/docs/Vedant_Chauhan_Resume.pdf" target="_blank" rel="noopener">Résumé <span aria-hidden="true">↗</span></a>
       </div>
     </div>
 
-    <!-- EDIT: location, focus and status -->
-    <dl class="facts rv">
-      <div><dt class="mono">Based in</dt><dd>Surat, India</dd></div>
-      <div><dt class="mono">Works with</dt><dd>Power BI · SQL · Fabric</dd></div>
-      <div><dt class="mono">Certified</dt><dd><a class="fact-link" href="#certificates"><img src="assets/img/certs/microsoft-certified-associate-badge.svg" alt="" width="22" height="22">2× Microsoft Associate</a></dd></div>
-      <div><dt class="mono">Currently</dt><dd><i class="dot" aria-hidden="true"></i>Power BI &amp; data, Inkey IT Solutions</dd></div>
-    </dl>
+    <!-- EDIT: headline numbers -->
+    <ul class="stats rv d2">
+      <li><b>20+</b><span class="mono">dashboards built</span></li>
+      <li><b>3+</b><span class="mono">international clients</span></li>
+      <li class="stat-wide"><b>5–10 h <i>→</i> &lt;10 min</b><span class="mono">weekly sales analysis, by hand → dashboard</span></li>
+      <li><a href="#credentials"><b>2×</b><span class="mono">Microsoft certified</span></a></li>
+    </ul>
+    <p class="hero-meta mono">Surat, India · Data Analytics &amp; Power BI at Inkey IT Solutions</p>
   </section>
 
   <!-- ============ 01 WORK ============ -->
@@ -67,241 +61,82 @@
       <span class="mono sec-no">§ 01</span>
       <h2 class="display">Selected work</h2>
     </header>
+    <p class="sec-intro rv">Five live Power BI reports I built at Inkey IT Solutions. Open any of them and click through the real report.</p>
 
-    <!-- Featured case study (Fig. 1 numbers live in assets/js/main.js) -->
-    <article class="feature">
-      <figure class="fig rv">
-        <figcaption class="fig-top"><span class="mono fig-no">Fig. 1</span><span class="serif fig-title">Time to produce one sales review</span><span class="fig-sub">Year-over-year and customer comparison, weekly or monthly</span></figcaption>
-        <div class="chart" id="fig1"></div>
-        <p class="fig-foot mono"><span>Client projects, Inkey IT Solutions</span><span>Hover or tap a bar</span></p>
-      </figure>
-      <div class="feature-text rv d1">
-        <p class="mono label">Case study 01 · Import/export sales</p>
-        <h3 class="serif">A sales review that took <b>5–10 hours</b> by hand now takes under 10 minutes.</h3>
-        <p>Import/export clients were putting together their year-over-year and customer comparisons by hand, every week or month. I built Power BI dashboards for both, on a data model that does the heavy lifting, so the same analysis now takes <b>under 10 minutes</b>.</p>
-        <ul class="meta mono">
-          <li><span>Role</span>Requirement calls, data model, dashboards</li>
-          <li><span>Tools</span>Power BI · DAX · Power Query · SQL</li>
-          <li><span>Result</span>5–10 hours → under 10 minutes</li>
-        </ul>
-      </div>
-    </article>
+    <!-- EDIT: one <article class="report"> per report. Screenshot in assets/img/reports/; data-embed is the public "Publish to web" link. -->
+    <div class="report-grid">
 
-    <!-- Published Power BI reports (thumbnails in assets/img/reports/, live links are public "publish to web" embeds) -->
-    <div class="reports">
-      <div class="reports-head rv">
-        <p class="mono label">Published Power BI reports</p>
-        <p class="reports-intro">Demo reports I built at Inkey IT Solutions, published live on the company's website. Open any of them to click through the real report.</p>
-      </div>
-      <div class="report-grid">
-
-        <article class="report r-lg rv">
-          <button class="report-shot" type="button" data-embed="https://app.powerbi.com/view?r=eyJrIjoiODExM2ZhYmItZWRmYi00NTRmLTk5ODEtNzlmNzMwNDY0NTc4IiwidCI6IjQyZjNhY2UwLTdhNmQtNDQ2YS1hNDI4LTA2MTk4NWM5ZTFhYiIsImMiOjEwfQ%3D%3D" data-title="Bike Mobility Analytics">
-            <img src="assets/img/reports/bike-mobility.jpg" alt="Bike Mobility Analytics report showing station availability, waiting times, failed rentals and maintenance status" width="1280" height="700" loading="lazy" decoding="async">
-            <span class="report-play mono">Explore live</span>
-          </button>
-          <div class="report-body">
-            <p class="report-domain mono">Urban mobility</p>
-            <h3 class="serif">Bike Mobility Analytics</h3>
-            <p>Bike-sharing data taken through a Microsoft Fabric Medallion architecture (Bronze, Silver, Gold) into Power BI dashboards on trips, station use and riders.</p>
-            <p class="report-tools mono">Microsoft Fabric · Lakehouse · Warehouse · Power BI</p>
-            <p class="report-links mono"><button type="button" data-embed="https://app.powerbi.com/view?r=eyJrIjoiODExM2ZhYmItZWRmYi00NTRmLTk5ODEtNzlmNzMwNDY0NTc4IiwidCI6IjQyZjNhY2UwLTdhNmQtNDQ2YS1hNDI4LTA2MTk4NWM5ZTFhYiIsImMiOjEwfQ%3D%3D" data-title="Bike Mobility Analytics">Explore live</button><a href="https://www.inkeysolutions.com/case-studies/bike-mobility-analytics-report/" target="_blank" rel="noopener">Case study ↗</a></p>
-          </div>
-        </article>
-
-        <article class="report r-lg rv d1">
-          <button class="report-shot" type="button" data-embed="https://app.powerbi.com/view?r=eyJrIjoiNTIwZDRkOTEtYWNlYi00MmFjLWJhN2MtZjllODE5ZDdiNjQ1IiwidCI6IjQyZjNhY2UwLTdhNmQtNDQ2YS1hNDI4LTA2MTk4NWM5ZTFhYiIsImMiOjEwfQ%3D%3D" data-title="Power BI Tenant Governance &amp; Lineage">
-            <img src="assets/img/reports/tenant-governance.jpg" alt="Power BI Tenant Governance report showing a health score, workspaces, reports, datasets and data sources" width="1280" height="700" loading="lazy" decoding="async">
-            <span class="report-play mono">Explore live</span>
-          </button>
-          <div class="report-body">
-            <p class="report-domain mono">Governance</p>
-            <h3 class="serif">Power BI Tenant Governance &amp; Lineage</h3>
-            <p>Uses Power BI Admin API data to trace lineage, monitor tenant health and refreshes, review access and find cleanup opportunities.</p>
-            <p class="report-tools mono">Power BI · Admin APIs</p>
-            <p class="report-links mono"><button type="button" data-embed="https://app.powerbi.com/view?r=eyJrIjoiNTIwZDRkOTEtYWNlYi00MmFjLWJhN2MtZjllODE5ZDdiNjQ1IiwidCI6IjQyZjNhY2UwLTdhNmQtNDQ2YS1hNDI4LTA2MTk4NWM5ZTFhYiIsImMiOjEwfQ%3D%3D" data-title="Power BI Tenant Governance &amp; Lineage">Explore live</button><a href="https://www.inkeysolutions.com/case-studies/power-bi-tenant-governance-and-lineage-analytics/" target="_blank" rel="noopener">Case study ↗</a></p>
-          </div>
-        </article>
-
-        <article class="report rv">
-          <button class="report-shot" type="button" data-embed="https://app.powerbi.com/view?r=eyJrIjoiOGM3ZWYxYWItODIyNi00MmJhLTg1OWQtY2I1NTI5ODNlOTI1IiwidCI6IjQyZjNhY2UwLTdhNmQtNDQ2YS1hNDI4LTA2MTk4NWM5ZTFhYiIsImMiOjEwfQ%3D%3D" data-title="Logistics &amp; Trading Analytics">
-            <img src="assets/img/reports/logistics-trading.jpg" alt="Logistics and Trading Analytics executive summary with revenue, net profit, top vendors and cost contribution" width="1280" height="700" loading="lazy" decoding="async">
-            <span class="report-play mono">Explore live</span>
-          </button>
-          <div class="report-body">
-            <p class="report-domain mono">Supply chain</p>
-            <h3 class="serif">Logistics &amp; Trading Analytics</h3>
-            <p>Procurement, warehouse, logistics and sales in one report, with KPIs that show bottlenecks and costs across the trading lifecycle.</p>
-            <p class="report-tools mono">Power BI</p>
-            <p class="report-links mono"><button type="button" data-embed="https://app.powerbi.com/view?r=eyJrIjoiOGM3ZWYxYWItODIyNi00MmJhLTg1OWQtY2I1NTI5ODNlOTI1IiwidCI6IjQyZjNhY2UwLTdhNmQtNDQ2YS1hNDI4LTA2MTk4NWM5ZTFhYiIsImMiOjEwfQ%3D%3D" data-title="Logistics &amp; Trading Analytics">Explore live</button><a href="https://www.inkeysolutions.com/case-studies/logistics-trading-analytics/" target="_blank" rel="noopener">Case study ↗</a></p>
-          </div>
-        </article>
-
-        <article class="report rv d1">
-          <button class="report-shot" type="button" data-embed="https://app.powerbi.com/view?r=eyJrIjoiYzhjOTY0YzctZGQ3Ny00NTNkLTgwNzMtNzM0M2E2ZDZjMzgzIiwidCI6IjQyZjNhY2UwLTdhNmQtNDQ2YS1hNDI4LTA2MTk4NWM5ZTFhYiIsImMiOjEwfQ%3D%3D" data-title="Legal Services Analytics">
-            <img src="assets/img/reports/legal-services.jpg" alt="Legal Services Analytics overview with matters, attorneys, revenue and the matters and revenue trend" width="1280" height="700" loading="lazy" decoding="async">
-            <span class="report-play mono">Explore live</span>
-          </button>
-          <div class="report-body">
-            <p class="report-domain mono">Legal</p>
-            <h3 class="serif">Legal Services Analytics</h3>
-            <p>Matters, deadlines, attorney performance, client activity and billing in one interactive report for legal teams.</p>
-            <p class="report-tools mono">Power BI</p>
-            <p class="report-links mono"><button type="button" data-embed="https://app.powerbi.com/view?r=eyJrIjoiYzhjOTY0YzctZGQ3Ny00NTNkLTgwNzMtNzM0M2E2ZDZjMzgzIiwidCI6IjQyZjNhY2UwLTdhNmQtNDQ2YS1hNDI4LTA2MTk4NWM5ZTFhYiIsImMiOjEwfQ%3D%3D" data-title="Legal Services Analytics">Explore live</button><a href="https://www.inkeysolutions.com/case-studies/legal-services-analytics/" target="_blank" rel="noopener">Case study ↗</a></p>
-          </div>
-        </article>
-
-        <article class="report rv d2">
-          <button class="report-shot" type="button" data-embed="https://app.powerbi.com/view?r=eyJrIjoiMDdhMzVmYTktZDJkYi00NTc3LThhMGUtMzIzMzY2ZGI2MDk3IiwidCI6IjQyZjNhY2UwLTdhNmQtNDQ2YS1hNDI4LTA2MTk4NWM5ZTFhYiIsImMiOjEwfQ%3D%3D" data-title="Hotel Market Analysis">
-            <img src="assets/img/reports/hotel-market.jpg" alt="Hotel Market Analysis 'Hotel Pulse' page with revenue, bookings, occupancy and the booking and cancellation trend" width="1280" height="700" loading="lazy" decoding="async">
-            <span class="report-play mono">Explore live</span>
-          </button>
-          <div class="report-body">
-            <p class="report-domain mono">Hospitality</p>
-            <h3 class="serif">Hotel Market Analysis</h3>
-            <p>Bookings, guests, revenue and operations in one report for revenue management, planning and guest experience.</p>
-            <p class="report-tools mono">Power BI</p>
-            <p class="report-links mono"><button type="button" data-embed="https://app.powerbi.com/view?r=eyJrIjoiMDdhMzVmYTktZDJkYi00NTc3LThhMGUtMzIzMzY2ZGI2MDk3IiwidCI6IjQyZjNhY2UwLTdhNmQtNDQ2YS1hNDI4LTA2MTk4NWM5ZTFhYiIsImMiOjEwfQ%3D%3D" data-title="Hotel Market Analysis">Explore live</button><a href="https://www.inkeysolutions.com/case-studies/hotel-market-analysis/" target="_blank" rel="noopener">Case study ↗</a></p>
-          </div>
-        </article>
-
-      </div>
-    </div>
-
-    <!-- More work: click a row to expand -->
-    <div class="index">
-      <p class="mono label index-label">More work</p>
-
-      <details class="row rv">
-        <summary><span class="mono n">02</span><span class="serif t">E-commerce Performance Dashboards</span><span class="mono tools">Power BI · DAX</span><span class="plus" aria-hidden="true"></span></summary>
-        <div class="row-body">
-          <p><b>Problem.</b> E-commerce retailers and wholesalers were collecting figures from each partner by hand.</p>
-          <p><b>What I did.</b> Built performance dashboards that bring every partner's numbers into one view.</p>
-          <p><b>Result.</b> The manual collection of figures from each partner was replaced.</p>
+      <article class="report r-lg rv">
+        <button class="report-shot" type="button" data-embed="https://app.powerbi.com/view?r=eyJrIjoiODExM2ZhYmItZWRmYi00NTRmLTk5ODEtNzlmNzMwNDY0NTc4IiwidCI6IjQyZjNhY2UwLTdhNmQtNDQ2YS1hNDI4LTA2MTk4NWM5ZTFhYiIsImMiOjEwfQ%3D%3D" data-title="Bike Mobility Analytics" aria-label="Explore the live Bike Mobility Analytics report">
+          <img src="assets/img/reports/bike-mobility.jpg" alt="Bike Mobility Analytics report showing station availability, waiting times, failed rentals and maintenance status" width="1280" height="700" loading="lazy" decoding="async">
+        </button>
+        <div class="report-body">
+          <p class="report-domain mono">Urban mobility · Microsoft Fabric</p>
+          <h3 class="serif">Bike Mobility Analytics</h3>
+          <p class="report-desc">Bike-sharing data run through a Fabric lakehouse (Bronze → Silver → Gold) into Power BI.</p>
+          <p class="report-links mono"><button type="button" data-embed="https://app.powerbi.com/view?r=eyJrIjoiODExM2ZhYmItZWRmYi00NTRmLTk5ODEtNzlmNzMwNDY0NTc4IiwidCI6IjQyZjNhY2UwLTdhNmQtNDQ2YS1hNDI4LTA2MTk4NWM5ZTFhYiIsImMiOjEwfQ%3D%3D" data-title="Bike Mobility Analytics">Explore live</button><a href="https://www.inkeysolutions.com/case-studies/bike-mobility-analytics-report/" target="_blank" rel="noopener">Case study ↗</a></p>
         </div>
-      </details>
+      </article>
 
-      <details class="row rv">
-        <summary><span class="mono n">03</span><span class="serif t">End-to-end BI for International Clients</span><span class="mono tools">Power BI · Fabric</span><span class="plus" aria-hidden="true"></span></summary>
-        <div class="row-body">
-          <p><b>Problem.</b> Clients in import/export, e-commerce and marketing needed interactive dashboards and KPI reports.</p>
-          <p><b>What I did.</b> Acted as the main client contact on several projects: requirement calls, meetings and email updates, through the data model, to delivery.</p>
-          <p><b>Result.</b> 20+ dashboards delivered for 3+ international clients.</p>
+      <article class="report r-lg rv d1">
+        <button class="report-shot" type="button" data-embed="https://app.powerbi.com/view?r=eyJrIjoiNTIwZDRkOTEtYWNlYi00MmFjLWJhN2MtZjllODE5ZDdiNjQ1IiwidCI6IjQyZjNhY2UwLTdhNmQtNDQ2YS1hNDI4LTA2MTk4NWM5ZTFhYiIsImMiOjEwfQ%3D%3D" data-title="Power BI Tenant Governance &amp; Lineage" aria-label="Explore the live Power BI Tenant Governance and Lineage report">
+          <img src="assets/img/reports/tenant-governance.jpg" alt="Power BI Tenant Governance report showing a health score, workspaces, reports, datasets and data sources" width="1280" height="700" loading="lazy" decoding="async">
+        </button>
+        <div class="report-body">
+          <p class="report-domain mono">Governance · Admin APIs</p>
+          <h3 class="serif">Power BI Tenant Governance &amp; Lineage</h3>
+          <p class="report-desc">Admin API data to trace lineage, check tenant health and refreshes, and review access.</p>
+          <p class="report-links mono"><button type="button" data-embed="https://app.powerbi.com/view?r=eyJrIjoiNTIwZDRkOTEtYWNlYi00MmFjLWJhN2MtZjllODE5ZDdiNjQ1IiwidCI6IjQyZjNhY2UwLTdhNmQtNDQ2YS1hNDI4LTA2MTk4NWM5ZTFhYiIsImMiOjEwfQ%3D%3D" data-title="Power BI Tenant Governance &amp; Lineage">Explore live</button><a href="https://www.inkeysolutions.com/case-studies/power-bi-tenant-governance-and-lineage-analytics/" target="_blank" rel="noopener">Case study ↗</a></p>
         </div>
-      </details>
-    </div>
-  </section>
+      </article>
 
-  <!-- ============ 02 PROCESS ============ -->
-  <section id="process" class="sec wrap">
-    <header class="sec-head rv">
-      <span class="mono sec-no">§ 02</span>
-      <h2 class="display">Good analysis starts with <em>boring</em> work</h2>
-    </header>
-
-    <div class="process">
-      <figure class="rv">
-        <div class="ba" id="ba">
-          <div class="ba-layer ba-after">
-            <span class="ba-tag mono">After</span>
-            <div class="ba-kpis">
-              <div><b class="serif">1</b><span class="mono">date format</span></div>
-              <div><b class="serif">1</b><span class="mono">name per customer</span></div>
-              <div><b class="serif">0</b><span class="mono">duplicates</span></div>
-            </div>
-            <table class="sheet clean-sheet mono">
-              <tr><th>date</th><th>customer</th><th>country</th><th>amount</th></tr>
-              <tr><td>2024-11-03</td><td>Acme Exports</td><td>India</td><td>12,400</td></tr>
-              <tr><td>2024-11-03</td><td>Acme Exports</td><td>India</td><td>9,800</td></tr>
-              <tr><td>2024-11-04</td><td>Nordic Traders</td><td>Sweden</td><td>7,250</td></tr>
-            </table>
-          </div>
-          <div class="ba-layer ba-before">
-            <span class="ba-tag mono">Before</span>
-            <table class="sheet mono">
-              <tr><th>date</th><th>customer</th><th>country</th><th>amount</th></tr>
-              <tr><td>03/11/24</td><td>Acme Exports</td><td>IN</td><td>12,400</td></tr>
-              <tr><td class="bad">2024-11-3</td><td class="bad">ACME EXPORTS</td><td class="bad">India&nbsp;</td><td>9,800</td></tr>
-              <tr><td class="bad">Nov 3rd</td><td class="bad">Acme Exp. Ltd</td><td class="bad">ind</td><td class="bad">12,4OO</td></tr>
-              <tr class="dup"><td>03/11/24</td><td>Acme Exports</td><td>IN</td><td>12,400</td></tr>
-              <tr><td class="bad">(blank)</td><td>Nordic Traders</td><td>SE</td><td class="bad">-</td></tr>
-              <tr><td>04/11/24</td><td class="bad">nordic traders</td><td class="bad">Sweden</td><td>7,250</td></tr>
-              <tr><td class="bad">11-04-24</td><td>Nordic Traders</td><td>SE</td><td>7,250</td></tr>
-            </table>
-          </div>
-          <div class="ba-handle" aria-hidden="true"></div>
-          <input type="range" min="3" max="97" value="55" aria-label="Drag to compare the raw export with the cleaned data">
+      <article class="report rv">
+        <button class="report-shot" type="button" data-embed="https://app.powerbi.com/view?r=eyJrIjoiOGM3ZWYxYWItODIyNi00MmJhLTg1OWQtY2I1NTI5ODNlOTI1IiwidCI6IjQyZjNhY2UwLTdhNmQtNDQ2YS1hNDI4LTA2MTk4NWM5ZTFhYiIsImMiOjEwfQ%3D%3D" data-title="Logistics &amp; Trading Analytics" aria-label="Explore the live Logistics and Trading Analytics report">
+          <img src="assets/img/reports/logistics-trading.jpg" alt="Logistics and Trading Analytics executive summary with revenue, net profit, top vendors and cost contribution" width="1280" height="700" loading="lazy" decoding="async">
+        </button>
+        <div class="report-body">
+          <p class="report-domain mono">Supply chain</p>
+          <h3 class="serif">Logistics &amp; Trading Analytics</h3>
+          <p class="report-desc">Procurement, warehouse, logistics and sales KPIs in one report.</p>
+          <p class="report-links mono"><button type="button" data-embed="https://app.powerbi.com/view?r=eyJrIjoiOGM3ZWYxYWItODIyNi00MmJhLTg1OWQtY2I1NTI5ODNlOTI1IiwidCI6IjQyZjNhY2UwLTdhNmQtNDQ2YS1hNDI4LTA2MTk4NWM5ZTFhYiIsImMiOjEwfQ%3D%3D" data-title="Logistics &amp; Trading Analytics">Explore live</button><a href="https://www.inkeysolutions.com/case-studies/logistics-trading-analytics/" target="_blank" rel="noopener">Case study ↗</a></p>
         </div>
-        <figcaption class="fig-foot mono"><span>Fig. 2 — an illustrative export (not client data), before and after Power Query</span><span>Drag to compare</span></figcaption>
-      </figure>
+      </article>
 
-      <ol class="steps rv d1">
-        <li><span class="mono">01</span><div><h3 class="serif">Start with the requirement call</h3><p>I'm the main client contact on several projects, so I hear first-hand which decision the dashboard has to support.</p></div></li>
-        <li><span class="mono">02</span><div><h3 class="serif">Clean it once, in Power Query</h3><p>Mixed date formats, duplicate rows and three spellings of one customer get fixed in the ETL, not by hand every week.</p></div></li>
-        <li><span class="mono">03</span><div><h3 class="serif">Model it with DAX</h3><p>A clean data model with the measures for year-over-year and customer comparisons built in.</p></div></li>
-        <li><span class="mono">04</span><div><h3 class="serif">Deliver and keep people updated</h3><p>Meetings and email updates all the way through to delivery, with repetitive tasks automated using AI tools.</p></div></li>
-      </ol>
+      <article class="report rv d1">
+        <button class="report-shot" type="button" data-embed="https://app.powerbi.com/view?r=eyJrIjoiYzhjOTY0YzctZGQ3Ny00NTNkLTgwNzMtNzM0M2E2ZDZjMzgzIiwidCI6IjQyZjNhY2UwLTdhNmQtNDQ2YS1hNDI4LTA2MTk4NWM5ZTFhYiIsImMiOjEwfQ%3D%3D" data-title="Legal Services Analytics" aria-label="Explore the live Legal Services Analytics report">
+          <img src="assets/img/reports/legal-services.jpg" alt="Legal Services Analytics overview with matters, attorneys, revenue and the matters and revenue trend" width="1280" height="700" loading="lazy" decoding="async">
+        </button>
+        <div class="report-body">
+          <p class="report-domain mono">Legal</p>
+          <h3 class="serif">Legal Services Analytics</h3>
+          <p class="report-desc">Matters, deadlines, attorney performance and billing for legal teams.</p>
+          <p class="report-links mono"><button type="button" data-embed="https://app.powerbi.com/view?r=eyJrIjoiYzhjOTY0YzctZGQ3Ny00NTNkLTgwNzMtNzM0M2E2ZDZjMzgzIiwidCI6IjQyZjNhY2UwLTdhNmQtNDQ2YS1hNDI4LTA2MTk4NWM5ZTFhYiIsImMiOjEwfQ%3D%3D" data-title="Legal Services Analytics">Explore live</button><a href="https://www.inkeysolutions.com/case-studies/legal-services-analytics/" target="_blank" rel="noopener">Case study ↗</a></p>
+        </div>
+      </article>
+
+      <article class="report rv d2">
+        <button class="report-shot" type="button" data-embed="https://app.powerbi.com/view?r=eyJrIjoiMDdhMzVmYTktZDJkYi00NTc3LThhMGUtMzIzMzY2ZGI2MDk3IiwidCI6IjQyZjNhY2UwLTdhNmQtNDQ2YS1hNDI4LTA2MTk4NWM5ZTFhYiIsImMiOjEwfQ%3D%3D" data-title="Hotel Market Analysis" aria-label="Explore the live Hotel Market Analysis report">
+          <img src="assets/img/reports/hotel-market.jpg" alt="Hotel Market Analysis 'Hotel Pulse' page with revenue, bookings, occupancy and the booking and cancellation trend" width="1280" height="700" loading="lazy" decoding="async">
+        </button>
+        <div class="report-body">
+          <p class="report-domain mono">Hospitality</p>
+          <h3 class="serif">Hotel Market Analysis</h3>
+          <p class="report-desc">Bookings, guests, revenue and operations for revenue management.</p>
+          <p class="report-links mono"><button type="button" data-embed="https://app.powerbi.com/view?r=eyJrIjoiMDdhMzVmYTktZDJkYi00NTc3LThhMGUtMzIzMzY2ZGI2MDk3IiwidCI6IjQyZjNhY2UwLTdhNmQtNDQ2YS1hNDI4LTA2MTk4NWM5ZTFhYiIsImMiOjEwfQ%3D%3D" data-title="Hotel Market Analysis">Explore live</button><a href="https://www.inkeysolutions.com/case-studies/hotel-market-analysis/" target="_blank" rel="noopener">Case study ↗</a></p>
+        </div>
+      </article>
+
     </div>
   </section>
 
-  <!-- ============ 03 ABOUT ============ -->
-  <section id="about" class="sec wrap">
-    <header class="sec-head rv">
-      <span class="mono sec-no">§ 03</span>
-      <h2 class="display">About</h2>
-    </header>
-    <div class="about">
-      <figure class="portrait rv">
-        <!-- EDIT: replace this block with <img src="assets/img/photo.jpg" alt="Vedant Chauhan"> -->
-        <div class="portrait-ph"><span class="serif">VC</span></div>
-        <figcaption class="mono">Fig. 3 — the analyst, probably mid-query</figcaption>
-      </figure>
-      <div class="about-text rv d1">
-        <!-- EDIT: your story in 2–3 short paragraphs -->
-        <p class="serif about-lead">I like the moment a messy spreadsheet suddenly makes sense.</p>
-        <p>I'm a data analyst and Power BI developer who owns BI delivery end to end: from the first requirement call with the client, through Power Query and the DAX model, to the finished dashboard. So far that's 20+ dashboards for 3+ international clients.</p>
-        <p>Alongside my full-time role, I build AI-powered web apps with a small freelance team at vscodelabs.</p>
-        <p>I care most about the last step: explaining the result in plain words, so the person reading it knows exactly what to do next.</p>
-        <ul class="now mono">
-          <li><span>Currently</span>Data Analytics &amp; Power BI, Inkey IT Solutions</li>
-          <li><span>Side work</span>Co-founder, vscodelabs</li>
-          <li><span>Education</span>B.E. Computer Engineering, 2025</li>
-          <li><span>Languages</span>English, Hindi, Gujarati</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 04 SKILLS ============ -->
-  <section id="skills" class="sec wrap">
-    <header class="sec-head rv">
-      <span class="mono sec-no">§ 04</span>
-      <h2 class="display">Toolkit</h2>
-    </header>
-    <!-- EDIT: one row per area -->
-    <table class="tbl rv">
-      <thead class="mono"><tr><th scope="col">Area</th><th scope="col">Tools</th><th scope="col">Used for</th></tr></thead>
-      <tbody>
-        <tr><th scope="row" class="serif">Reporting</th><td>Power BI, Microsoft Fabric</td><td>Interactive dashboards, KPI reports</td></tr>
-        <tr><th scope="row" class="serif">Modelling</th><td>DAX</td><td>Data models and measures</td></tr>
-        <tr><th scope="row" class="serif">Data prep</th><td>Power Query (advanced)</td><td>ETL, data cleaning, faster refreshes</td></tr>
-        <tr><th scope="row" class="serif">Querying</th><td>SQL</td><td>Querying, optimisation, data checks</td></tr>
-        <tr><th scope="row" class="serif">Sources</th><td>Business Central, Power Apps CRM, APIs, Supabase</td><td>Sales, finance and customer data</td></tr>
-        <tr><th scope="row" class="serif">AI &amp; automation</th><td>Claude, Codex</td><td>Automating repetitive tasks, AI-assisted development</td></tr>
-        <tr><th scope="row" class="serif">Building</th><td>Flutter, web apps</td><td>Freelance client work at vscodelabs</td></tr>
-        <tr><th scope="row" class="serif">Client work</th><td>Requirements gathering, stakeholder management</td><td>Owning projects from the first call to delivery</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- ============ 05 EXPERIENCE ============ -->
+  <!-- ============ 02 EXPERIENCE ============ -->
   <section id="experience" class="sec wrap">
     <header class="sec-head rv">
-      <span class="mono sec-no">§ 05</span>
+      <span class="mono sec-no">§ 02</span>
       <h2 class="display">Experience</h2>
     </header>
 
-    <!-- Fig. 4: the career line is drawn by assets/js/main.js (stations are listed there under "EDIT") -->
+    <!-- Fig. 1: the career line is drawn by assets/js/main.js (stations are listed there under "EDIT") -->
     <div class="xp-legend rv" aria-hidden="true">
       <span><i class="sw sw-edu"></i>Education</span>
       <span><i class="sw sw-int"></i>Internship</span>
@@ -311,137 +146,124 @@
     </div>
     <figure class="metro-fig rv">
       <div class="metro" id="metro"></div>
-      <figcaption class="fig-foot mono"><span>Fig. 4 — career line, stations in order (not to scale)</span><span>Tap a station for details</span></figcaption>
+      <figcaption class="fig-foot mono"><span>Fig. 1 — career line, in order (not to scale)</span><span>Tap a station for details</span></figcaption>
     </figure>
 
-    <!-- EDIT: one card per role. data-start / data-end (YYYY-MM) drive the duration label; leave data-end off for a current role. -->
+    <!-- EDIT: data-start (YYYY-MM) drives the duration label -->
     <div class="xp-cards">
-
-      <article class="xp-card xp-wide rv" id="xp-ase">
+      <article class="xp-card rv" id="xp-ase">
         <div class="xp-top">
-          <div><h3 class="serif">Associate Software Engineer</h3><p class="xp-org serif">Inkey IT Solutions</p></div>
+          <div><h3 class="serif">Associate Software Engineer</h3><p class="xp-org serif">Inkey IT Solutions · Data Analytics &amp; Power BI</p></div>
           <p class="xp-when mono">Aug 2025 — Present<span class="dur" data-start="2025-08"></span></p>
         </div>
-        <p class="role-tags mono"><span>Data Analytics &amp; Power BI</span><span>Full-time</span><span class="promo">↑ Converted from internship</span></p>
         <ul class="role-points">
-          <li>Deliver interactive Power BI dashboards and KPI reports for 3+ international clients in import/export, e-commerce and marketing, with 20+ dashboards built to date.</li>
-          <li>Act as the primary client-facing contact on several projects, owning requirement calls, meetings and email updates through to delivery.</li>
-          <li>Built year-over-year and customer-comparison sales dashboards for import/export clients, cutting 5–10 hours of manual weekly or monthly analysis to under 10 minutes.</li>
-          <li>Created performance dashboards for e-commerce retailers and wholesalers, replacing manual collection of figures from each partner.</li>
-          <li>Design and maintain data models in DAX, run ETL and data cleaning in Power Query, and automate repetitive tasks with AI tools.</li>
-          <li>Work with data from Business Central, Power Apps CRM, SQL and APIs across Sales, Finance, B2B and B2C projects.</li>
+          <li>Deliver Power BI dashboards and KPI reports for international clients in import/export, e-commerce and marketing.</li>
+          <li>Main client contact on several projects, from the first requirement call to delivery.</li>
+          <li>Design DAX data models and Power Query ETL over Business Central, Power Apps CRM, SQL and API data.</li>
         </ul>
-        <p class="role-stack mono">Power BI · DAX · Power Query · SQL · Microsoft Fabric · Business Central · Power Apps CRM · APIs</p>
+        <p class="xp-note mono">Joined as a Data Analyst Intern in Jan 2025 · converted to full-time in Aug 2025</p>
       </article>
 
-      <article class="xp-card xp-wide rv" id="xp-vsc">
+      <article class="xp-card rv d1" id="xp-vsc">
         <div class="xp-top">
-          <div><h3 class="serif">Co-founder</h3><p class="xp-org serif">vscodelabs</p></div>
-          <p class="xp-when mono">2026 — Present<span class="dur">Ongoing</span></p>
+          <div><h3 class="serif">Co-founder</h3><p class="xp-org serif">vscodelabs · freelance, alongside my full-time role</p></div>
+          <p class="xp-when mono">2026 — Present</p>
         </div>
-        <p class="role-tags mono"><span>Freelance</span><span>Alongside full-time role</span></p>
-        <ul class="role-points">
-          <li>Deliver paid web and app projects in a team of 3–4 developers, coordinating tasks within the team; built with AI tools and Supabase.</li>
-        </ul>
-        <ul class="client-work">
-          <li><span class="cw-type mono">E-commerce</span><a class="cw-name" href="https://apparel60.co.in/" target="_blank" rel="noopener">apparel60.co.in <span aria-hidden="true">↗</span></a><span class="cw-desc">Full clothing store with cart and online payments</span></li>
-          <li><span class="cw-type mono">Operations app</span><span class="cw-name">Manufacturing Operations App</span><span class="cw-desc">Production tracking, stock, shipping, attendance and payroll for a pipe manufacturer, with POS integration</span></li>
-          <li><span class="cw-type mono">Food ordering</span><span class="cw-name">Café Ordering Website</span><span class="cw-desc">Online ordering and takeout for a café client in Australia, with Uber Direct delivery and POS integration</span></li>
-          <li><span class="cw-type mono">AI app</span><span class="cw-name">MV Bot</span><span class="cw-desc">AI chatbot app</span></li>
-          <li><span class="cw-type mono">Booking system</span><span class="cw-name">Appointment Checker</span><span class="cw-desc">End-to-end appointment system for salons, doctors and other services</span></li>
-          <li><span class="cw-type mono">Portfolio</span><span class="cw-name">Doctor's Portfolio</span><span class="cw-desc">Portfolio app for a doctor's practice</span></li>
+        <p class="xp-desc">Paid web and app projects in a team of 3–4 developers, built with AI tools and Supabase.</p>
+        <!-- EDIT: one <li> per client project -->
+        <ul class="proj-list">
+          <li><a href="https://apparel60.co.in/" target="_blank" rel="noopener">apparel60.co.in ↗</a><span>E-commerce store with cart and payments</span></li>
+          <li><b>Manufacturing operations app</b><span>Production, stock, shipping, attendance, payroll</span></li>
+          <li><b>Café ordering website</b><span>Ordering with Uber Direct delivery, Australia</span></li>
+          <li><b>MV Bot</b><span>AI chatbot app</span></li>
+          <li><b>Appointment Checker</b><span>Bookings for salons, doctors and more</span></li>
+          <li><b>Doctor's portfolio</b><span>Portfolio app</span></li>
         </ul>
       </article>
-
-      <article class="xp-card rv" id="xp-int">
-        <div class="xp-top">
-          <div><h3 class="serif">Data Analyst Intern</h3><p class="xp-org serif">Inkey IT Solutions</p></div>
-          <p class="xp-when mono">Jan 2025 — Jul 2025<span class="dur" data-start="2025-01" data-end="2025-07"></span></p>
-        </div>
-        <p class="role-tags mono"><span>Internship</span></p>
-        <ul class="role-points">
-          <li>Performed data analysis and built Power BI reports; converted to full-time in August 2025.</li>
-        </ul>
-      </article>
-
-      <article class="xp-card rv d1" id="xp-flu">
-        <div class="xp-top">
-          <div><h3 class="serif">Flutter Developer Intern</h3><p class="xp-org serif">TechnoGuide Pvt. Ltd.</p></div>
-          <p class="xp-when mono">May 2024<span class="dur" data-start="2024-05" data-end="2024-05"></span></p>
-        </div>
-        <p class="role-tags mono"><span>Internship</span></p>
-      </article>
-
-      <article class="xp-card rv d2" id="xp-edu">
-        <div class="xp-top">
-          <div><h3 class="serif">B.E. in Computer Engineering</h3><p class="xp-org serif">CVM University</p></div>
-          <p class="xp-when mono">2021 — 2025<span class="dur">4 years</span></p>
-        </div>
-        <p class="role-tags mono"><span>Education</span></p>
-        <p class="edu-inst">Madhuben and Bhanubhai Patel Women Institute of Engineering for Studies and Research in Computer and Communication Technology, Anand, Gujarat</p>
-      </article>
-
     </div>
   </section>
 
-  <!-- ============ 06 CERTIFICATIONS ============ -->
-  <section id="certificates" class="sec wrap">
+  <!-- ============ 03 CREDENTIALS ============ -->
+  <section id="credentials" class="sec wrap">
     <header class="sec-head rv">
-      <span class="mono sec-no">§ 06</span>
-      <h2 class="display">Certifications</h2>
+      <span class="mono sec-no">§ 03</span>
+      <h2 class="display">Credentials</h2>
     </header>
-    <!-- To add one: copy an <article class="cert"> block (newest first) and put its image in assets/img/certs/.
-         data-expires (YYYY-MM-DD) controls the "Active" label. -->
-    <div class="certs">
+    <div class="cred">
 
-      <article class="cert rv" data-expires="2027-10-18">
-        <button class="cert-img" type="button" data-full="assets/img/certs/fabric-analytics-engineer.jpg">
-          <img src="assets/img/certs/fabric-analytics-engineer.jpg" alt="Microsoft Certified: Fabric Analytics Engineer Associate certificate, issued to Vedant Chauhan on October 18, 2026" width="874" height="563" loading="lazy" decoding="async">
-          <span class="cert-zoom mono">View full size ⤢</span>
-        </button>
-        <div class="cert-body">
-          <p class="cert-meta mono"><span>Microsoft · Exam DP-600</span><span class="cert-status"><i class="dot" aria-hidden="true"></i>Active</span></p>
-          <h3 class="serif">Fabric Analytics Engineer <em>Associate</em></h3>
-          <ul class="cert-skills">
-            <li>Maintain a data analytics solution</li>
-            <li>Prepare data</li>
-            <li>Implement and manage semantic models</li>
-          </ul>
-          <dl class="cert-facts mono">
-            <div><dt>Earned</dt><dd>Oct 18, 2026</dd></div>
-            <div><dt>Valid until</dt><dd>Oct 18, 2027</dd></div>
-            <div><dt>Credential ID</dt><dd>1A42CDDD09A87D16</dd></div>
-          </dl>
-          <a class="link" href="https://learn.microsoft.com/api/credentials/share/en-us/VedantChauhan-6213/1A42CDDD09A87D16?sharingId=C0E295FF82E374A2" target="_blank" rel="noopener">Verify on Microsoft Learn <span aria-hidden="true">↗</span></a>
-        </div>
-      </article>
+      <!-- EDIT: one <article class="cert"> per certification; data-expires (YYYY-MM-DD) hides "Active" once it lapses -->
+      <div class="cred-col" id="certificates">
+        <p class="mono label cred-label">Microsoft certifications</p>
+        <article class="cert rv" data-expires="2027-10-18">
+          <img class="cert-badge" src="assets/img/certs/microsoft-certified-associate-badge.svg" alt="" width="56" height="56">
+          <div>
+            <h3 class="serif">Fabric Analytics Engineer Associate</h3>
+            <p class="cert-meta mono">Exam DP-600 · Oct 2026 – Oct 2027<span class="cert-status"> · Active</span></p>
+            <p class="cert-links mono"><a href="https://learn.microsoft.com/api/credentials/share/en-us/VedantChauhan-6213/1A42CDDD09A87D16?sharingId=C0E295FF82E374A2" target="_blank" rel="noopener">Verify ↗</a><button type="button" class="cert-view" data-full="assets/img/certs/fabric-analytics-engineer.jpg" data-alt="Microsoft Certified: Fabric Analytics Engineer Associate certificate, issued to Vedant Chauhan on October 18, 2026">View certificate</button></p>
+          </div>
+        </article>
+        <article class="cert rv d1" data-expires="2027-07-26">
+          <img class="cert-badge" src="assets/img/certs/microsoft-certified-associate-badge.svg" alt="" width="56" height="56">
+          <div>
+            <h3 class="serif">SQL AI Developer Associate</h3>
+            <p class="cert-meta mono">Exam DP-800 · Jul 2026 – Jul 2027<span class="cert-status"> · Active</span></p>
+            <p class="cert-links mono"><a href="https://learn.microsoft.com/api/credentials/share/en-us/VedantChauhan-6213/6954ED3BB87CF88?sharingId=C0E295FF82E374A2" target="_blank" rel="noopener">Verify ↗</a><button type="button" class="cert-view" data-full="assets/img/certs/sql-ai-developer.jpg" data-alt="Microsoft Certified: SQL AI Developer Associate certificate, issued to Vedant Chauhan on July 26, 2026">View certificate</button></p>
+          </div>
+        </article>
+      </div>
 
-      <article class="cert rv d1" data-expires="2027-07-26">
-        <button class="cert-img" type="button" data-full="assets/img/certs/sql-ai-developer.jpg">
-          <img src="assets/img/certs/sql-ai-developer.jpg" alt="Microsoft Certified: SQL AI Developer Associate certificate, issued to Vedant Chauhan on July 26, 2026" width="874" height="563" loading="lazy" decoding="async">
-          <span class="cert-zoom mono">View full size ⤢</span>
-        </button>
-        <div class="cert-body">
-          <p class="cert-meta mono"><span>Microsoft · Exam DP-800</span><span class="cert-status"><i class="dot" aria-hidden="true"></i>Active</span></p>
-          <h3 class="serif">SQL AI Developer <em>Associate</em></h3>
-          <ul class="cert-skills">
-            <li>Design and develop database solutions</li>
-            <li>Secure, optimize and deploy database solutions</li>
-            <li>Implement AI capabilities in SQL solutions</li>
-          </ul>
-          <dl class="cert-facts mono">
-            <div><dt>Earned</dt><dd>Jul 26, 2026</dd></div>
-            <div><dt>Valid until</dt><dd>Jul 26, 2027</dd></div>
-            <div><dt>Credential ID</dt><dd>6954ED3BB87CF88</dd></div>
-          </dl>
-          <a class="link" href="https://learn.microsoft.com/api/credentials/share/en-us/VedantChauhan-6213/6954ED3BB87CF88?sharingId=C0E295FF82E374A2" target="_blank" rel="noopener">Verify on Microsoft Learn <span aria-hidden="true">↗</span></a>
-        </div>
-      </article>
+      <!-- EDIT: one <li> per article, newest first -->
+      <div class="cred-col" id="writing">
+        <p class="mono label cred-label">Writing · Inkey IT Solutions blog</p>
+        <ol class="posts">
+          <li class="rv"><a class="post" href="https://www.inkeysolutions.com/connecting-business-central-with-dataverse-and-power-bi-a-comparative-analysis-of-integration-approaches/" target="_blank" rel="noopener"><span class="post-date mono">Oct 2026</span><span class="post-title serif">Connecting Business Central with Dataverse and Power BI</span><span class="post-arrow" aria-hidden="true">↗</span></a></li>
+          <li class="rv d1"><a class="post" href="https://www.inkeysolutions.com/power-bi-web-api-integration-with-bearer-token-refresh-configuration/" target="_blank" rel="noopener"><span class="post-date mono">May 2026</span><span class="post-title serif">Power BI Web API Integration with Bearer Token &amp; Refresh Configuration</span><span class="post-arrow" aria-hidden="true">↗</span></a></li>
+          <li class="rv d2"><a class="post" href="https://www.inkeysolutions.com/dynamic-rating-sentences-in-power-bi/" target="_blank" rel="noopener"><span class="post-date mono">Apr 2026</span><span class="post-title serif">Dynamic Rating Sentences in Power BI</span><span class="post-arrow" aria-hidden="true">↗</span></a></li>
+        </ol>
+      </div>
 
     </div>
   </section>
 
-  <!-- full-size certificate viewer -->
+  <!-- ============ 04 ABOUT ============ -->
+  <section id="about" class="sec wrap">
+    <header class="sec-head rv">
+      <span class="mono sec-no">§ 04</span>
+      <h2 class="display">About</h2>
+    </header>
+    <div class="about">
+      <figure class="portrait rv">
+        <!-- EDIT: replace this block with <img src="assets/img/photo.jpg" alt="Vedant Chauhan"> -->
+        <div class="portrait-ph"><span class="serif">VC</span></div>
+        <figcaption class="mono">Fig. 2 — the analyst, probably mid-query</figcaption>
+      </figure>
+      <div class="about-text rv d1">
+        <p class="serif about-lead">I like the moment a messy spreadsheet suddenly makes sense.</p>
+        <p>I'm a data analyst and Power BI developer at Inkey IT Solutions, working from the client's first requirement call to the finished dashboard. What I care about most is the last step: explaining the result in plain words, so people know what to do next.</p>
+        <p>Alongside my job, I build web and AI apps with a small team at vscodelabs. I studied Computer Engineering (B.E., 2021–2025) and speak English, Hindi and Gujarati.</p>
+        <!-- EDIT: tools, three groups -->
+        <dl class="tools">
+          <div><dt class="mono">Analyse</dt><dd>Power BI · DAX · Power Query · Microsoft Fabric</dd></div>
+          <div><dt class="mono">Connect</dt><dd>SQL · Business Central · Power Apps CRM · APIs · Supabase</dd></div>
+          <div><dt class="mono">Build</dt><dd>Flutter · AI tools (Claude, Codex)</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 CONTACT ============ -->
+  <section id="contact" class="contact wrap">
+    <p class="mono sec-no rv">§ 05 · Contact</p>
+    <h2 class="display contact-title rv d1">Let's find the story in <em>your</em> data.</h2>
+    <a class="email serif rv d2" href="mailto:chauhanvedant34@gmail.com">chauhanvedant34@gmail.com</a>
+    <ul class="socials mono rv d2">
+      <li><a href="https://www.linkedin.com/in/vedant-chauhan-99638a227/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+      <li><a href="https://github.com/vedant-chauhan" target="_blank" rel="noopener">GitHub ↗</a></li>
+      <li><a href="assets/docs/Vedant_Chauhan_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF) ↗</a></li>
+    </ul>
+  </section>
+
+  <!-- certificate viewer -->
   <dialog class="lightbox" id="lightbox" aria-label="Certificate">
     <form method="dialog"><button class="lb-close mono" type="submit">Close ✕</button></form>
     <img src="" alt="">
@@ -457,46 +279,6 @@
     </div>
     <div class="viewer-frame"><iframe title="Power BI report" allowfullscreen></iframe></div>
   </dialog>
-
-  <!-- ============ 07 WRITING ============ -->
-  <section id="writing" class="sec wrap">
-    <header class="sec-head rv">
-      <span class="mono sec-no">§ 07</span>
-      <h2 class="display">Writing</h2>
-    </header>
-    <p class="writing-intro rv">Technical articles I wrote for the Inkey IT Solutions blog.</p>
-    <!-- EDIT: one <li> per article, newest first -->
-    <ol class="posts">
-      <li class="rv"><a class="post" href="https://www.inkeysolutions.com/connecting-business-central-with-dataverse-and-power-bi-a-comparative-analysis-of-integration-approaches/" target="_blank" rel="noopener">
-        <span class="post-date mono">Oct 2026</span>
-        <span class="post-main"><span class="post-title serif">Connecting Business Central with Dataverse and Power BI</span><span class="post-sub">A comparative analysis of the ways to bring Business Central data into Dataverse and Power BI, and when each approach fits.</span><span class="post-tags mono">Business Central · Dataverse · Power BI</span></span>
-        <span class="post-arrow" aria-hidden="true">↗</span>
-      </a></li>
-      <li class="rv"><a class="post" href="https://www.inkeysolutions.com/power-bi-web-api-integration-with-bearer-token-refresh-configuration/" target="_blank" rel="noopener">
-        <span class="post-date mono">May 2026</span>
-        <span class="post-main"><span class="post-title serif">Power BI Web API Integration with Bearer Token &amp; Refresh Configuration</span><span class="post-sub">Pulling REST API data into Power BI through Power Query, with bearer-token authentication, pagination for large datasets and refresh set-up.</span><span class="post-tags mono">Power Query · REST APIs · Power BI</span></span>
-        <span class="post-arrow" aria-hidden="true">↗</span>
-      </a></li>
-      <li class="rv"><a class="post" href="https://www.inkeysolutions.com/dynamic-rating-sentences-in-power-bi/" target="_blank" rel="noopener">
-        <span class="post-date mono">Apr 2026</span>
-        <span class="post-main"><span class="post-title serif">Dynamic Rating Sentences in Power BI</span><span class="post-sub">Turning a rating into a contextual, human sentence that varies, so feedback and survey reports don't repeat the same line every time.</span><span class="post-tags mono">DAX · Power BI</span></span>
-        <span class="post-arrow" aria-hidden="true">↗</span>
-      </a></li>
-    </ol>
-  </section>
-
-  <!-- ============ 08 CONTACT ============ -->
-  <section id="contact" class="contact wrap">
-    <p class="mono sec-no rv">§ 08 · Contact</p>
-    <h2 class="display contact-title rv d1">Let's find the story in <em>your</em> data.</h2>
-    <!-- EDIT: your public email and links -->
-    <a class="email serif rv d2" href="mailto:chauhanvedant34@gmail.com">chauhanvedant34@gmail.com</a>
-    <ul class="socials mono rv d2">
-      <li><a href="https://www.linkedin.com/in/vedant-chauhan-99638a227/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-      <li><a href="https://github.com/vedant-chauhan" target="_blank" rel="noopener">GitHub ↗</a></li>
-      <li><a href="assets/docs/Vedant_Chauhan_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF) ↗</a></li>
-    </ul>
-  </section>
 </main>
 
 <footer class="site-foot">

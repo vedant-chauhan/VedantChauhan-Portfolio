@@ -3,6 +3,7 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const now = new Date();
 
   /* ---------- scroll reveal ---------- */
   const reveal = $$('.rv');
@@ -17,11 +18,11 @@
     reveal.forEach(el => io.observe(el));
   }
 
-  /* headline underline draws itself once the page has loaded */
+  /* headline underline and margin note draw themselves once the page has loaded */
   const mark = $('.mark');
   if (mark) requestAnimationFrame(() => requestAnimationFrame(() => mark.classList.add('drawn')));
 
-  /* ---------- header state ---------- */
+  /* ---------- header border once scrolled ---------- */
   const head = $('.site-head');
   const onScroll = () => head.classList.toggle('scrolled', scrollY > 8);
   addEventListener('scroll', onScroll, { passive: true });
@@ -57,99 +58,7 @@
     links.forEach((_, id) => { const s = document.getElementById(id); if (s) spy.observe(s); });
   }
 
-  /* ---------- Fig. 1: hours per sales review, by hand vs dashboard ---------- */
-  // EDIT: numbers from the case study, in hours
-  const ROWS = [
-    { label: 'By hand', min: 5, max: 10, value: '5–10 hours', tip: 'By hand: 5–10 hours of manual analysis' },
-    { label: 'Dashboard', min: 0, max: 10 / 60, value: 'under 10 minutes', tip: 'With the dashboard: under 10 minutes', hi: true },
-  ];
-  const AXIS_MAX = 10;
-
-  // horizontal bar anchored at the axis, rounded only at its far end
-  const hbar = (x, y, w, h, cls, round) => {
-    const r = round ? Math.min(4, w / 2, h / 2) : 0;
-    return `<path class="${cls}" d="M${x},${y} L${x + w - r},${y} Q${x + w},${y} ${x + w},${y + r} L${x + w},${y + h - r} Q${x + w},${y + h} ${x + w - r},${y + h} L${x},${y + h} Z"/>`;
-  };
-
-  function drawChart() {
-    const host = $('#fig1');
-    if (!host) return;
-    const W = Math.max(280, Math.round(host.clientWidth));
-    const narrow = W < 460;
-    const m = { l: narrow ? 80 : 96, r: narrow ? 12 : 20, t: 30, b: 30 };
-    const rowH = narrow ? 70 : 78, barH = narrow ? 24 : 28;
-    const H = m.t + ROWS.length * rowH + m.b;
-    const iw = W - m.l - m.r;
-    const x = v => m.l + iw * (v / AXIS_MAX);
-
-    let s = `<defs><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" class="hatch-bg"/><line x1="0" y1="0" x2="0" y2="7" class="hatch-ln"/></pattern></defs>`;
-    for (let v = 0; v <= AXIS_MAX; v += 2) {
-      s += `<line class="grid" x1="${x(v)}" x2="${x(v)}" y1="${m.t - 12}" y2="${H - m.b}"/>`;
-      s += `<text x="${x(v)}" y="${H - 10}" text-anchor="middle">${v}${v === AXIS_MAX ? ' h' : ''}</text>`;
-    }
-    ROWS.forEach((r, i) => {
-      const cy = m.t + i * rowH + rowH / 2, y0 = cy - barH / 2;
-      s += `<text class="rl" x="${m.l - 12}" y="${cy + 5}" text-anchor="end">${r.label}</text>`;
-      if (r.min > 0) {
-        // solid up to the low end of the range, hatched across the range (2px gap between)
-        s += hbar(x(0), y0, x(r.min) - x(0) - 1, barH, 'bar', false);
-        s += hbar(x(r.min) + 1, y0, x(r.max) - x(r.min) - 1, barH, 'bar range', true);
-        s += `<text class="vl" x="${x(r.max)}" y="${y0 - 8}" text-anchor="end">${r.value}</text>`;
-      } else {
-        const w = Math.max(5, x(r.max) - x(0));
-        s += hbar(x(0), y0, w, barH, 'bar hi', true);
-        s += `<text class="ann" x="${x(0) + w + 10}" y="${cy + 5}">${r.value}</text>`;
-      }
-      s += `<rect class="hit" data-i="${i}" x="${m.l}" y="${cy - rowH / 2}" width="${iw}" height="${rowH}" fill="transparent"/>`;
-    });
-    s += `<line class="base" x1="${x(0)}" x2="${x(0)}" y1="${m.t - 12}" y2="${H - m.b}"/>`;
-
-    host.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Bar chart: one sales review took 5 to 10 hours by hand, and under 10 minutes with the Power BI dashboard.">${s}</svg><div class="tip"></div>`;
-
-    const svg = $('svg', host), tip = $('.tip', host);
-    const show = el => {
-      const i = +el.dataset.i, r = ROWS[i], k = svg.getBoundingClientRect().width / W;
-      const cy = m.t + i * rowH + rowH / 2;
-      tip.textContent = r.tip;
-      tip.style.left = `${Math.min(x(r.max), W - 120) * k}px`;
-      tip.style.top = `${(cy - barH / 2) * k}px`;
-      tip.style.opacity = 1;
-    };
-    $$('.hit', svg).forEach(h => {
-      h.addEventListener('pointerenter', () => show(h));
-      h.addEventListener('pointerdown', () => show(h));
-      h.addEventListener('pointerleave', () => (tip.style.opacity = 0));
-    });
-  }
-  drawChart();
-  let rw = innerWidth, t;
-  addEventListener('resize', () => {
-    clearTimeout(t);
-    t = setTimeout(() => { if (innerWidth !== rw) { rw = innerWidth; drawChart(); drawMetro(); } }, 150);
-  });
-
-  /* ---------- certifications: "Active" label + full-size viewer ---------- */
-  const now = new Date();
-  $$('.cert[data-expires]').forEach(c => {
-    const st = $('.cert-status', c);
-    if (st && new Date(`${c.dataset.expires}T23:59:59`) >= now) st.classList.add('on');
-  });
-  const lb = $('#lightbox');
-  $$('.cert-img').forEach(btn => {
-    const thumb = $('img', btn);
-    btn.setAttribute('aria-label', `View full size: ${thumb.alt}`);
-    btn.addEventListener('click', () => {
-      if (!lb || typeof lb.showModal !== 'function') { window.open(btn.dataset.full, '_blank', 'noopener'); return; }
-      const big = $('img', lb);
-      big.src = btn.dataset.full;
-      big.alt = thumb.alt;
-      $('.lb-cap', lb).textContent = thumb.alt;
-      lb.showModal();
-    });
-  });
-  if (lb) lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
-
-  /* ---------- experience: durations, counted like LinkedIn (inclusive months) ---------- */
+  /* ---------- durations, counted like LinkedIn (inclusive months) ---------- */
   const ym = s => { const [y, m] = s.split('-').map(Number); return y * 12 + (m - 1); };
   const thisMonth = now.getFullYear() * 12 + now.getMonth();
   const durLabel = months => {
@@ -160,13 +69,13 @@
     el.textContent = durLabel((el.dataset.end ? ym(el.dataset.end) : thisMonth) - ym(el.dataset.start) + 1);
   });
 
-  /* ---------- Fig. 4: career line (metro map) ---------- */
-  // EDIT: stations on the map; `to` is the card (or section) a station links to
+  /* ---------- Fig. 1: career line (metro map) ---------- */
+  // EDIT: stations on the map. `to` (optional) is the card or section a station links to.
   const ST = {
-    start: { date: '2021', name: 'Started B.E.', sub: 'CVM University', to: '#xp-edu' },
-    flu: { date: 'MAY 2024', name: 'Flutter intern', sub: 'TechnoGuide · 1 mo', to: '#xp-flu' },
-    int: { date: 'JAN 2025', name: 'Data Analyst Intern', sub: 'Inkey IT Solutions', to: '#xp-int' },
-    grad: { date: '2025', name: 'Graduated', sub: 'B.E. Computer Engineering', to: '#xp-edu' },
+    start: { date: '2021', name: 'Started B.E.', sub: 'CVM University' },
+    flu: { date: 'MAY 2024', name: 'Flutter intern', sub: 'TechnoGuide · 1 mo' },
+    int: { date: 'JAN 2025', name: 'Data Analyst Intern', sub: 'Inkey IT Solutions', to: '#xp-ase' },
+    grad: { date: '2025', name: 'Graduated', sub: 'B.E. Computer Engineering' },
     ft: { date: 'AUG 2025', name: 'Full-time at Inkey', sub: 'Associate Software Engineer', to: '#xp-ase' },
     vsc: { date: '2026', name: 'Co-founded vscodelabs', sub: 'Web & app projects, team of 3–4', to: '#xp-vsc' },
     dp8: { date: 'JUL 2026', name: 'DP-800 certified', sub: 'SQL AI Developer', to: '#certificates' },
@@ -175,10 +84,12 @@
   const FULL_TIME_START = '2025-08';   // drives the "Now" duration
   const metro = $('#metro');
 
-  const stn = (k, inner) => `<a class="stn" href="${ST[k].to}" aria-label="${ST[k].date}: ${ST[k].name}, ${ST[k].sub}">${inner}</a>`;
+  const stn = (k, inner) => ST[k].to
+    ? `<a class="stn" href="${ST[k].to}" aria-label="${ST[k].date}: ${ST[k].name}, ${ST[k].sub}">${inner}</a>`
+    : `<g>${inner}</g>`;
   const circ = (x, y, cls, r = 8) => `<circle class="st ${cls}" cx="${x}" cy="${y}" r="${r}"/>`;
   const dia = (x, y, r = 10) => `<path class="dia" d="M${x},${y - r} l${r},${r} l${-r},${r} l${-r},${-r} z"/>`;
-  const terminal = (x, y, cls, r, pulse) => `${pulse ? `<circle class="ring" cx="${x}" cy="${y}" r="${r}"/>` : ''}<circle class="${cls}" cx="${x}" cy="${y}" r="${r}"/><circle cx="${x}" cy="${y}" r="${r * 0.4}" fill="#fffdf7"/>`;
+  const terminal = (x, y, cls, r, pulse) => `${pulse && !reduce ? `<circle class="ring" cx="${x}" cy="${y}" r="${r}"/>` : ''}<circle class="${cls}" cx="${x}" cy="${y}" r="${r}"/><circle cx="${x}" cy="${y}" r="${r * 0.4}" fill="#fffdf7"/>`;
   const sinceFullTime = () => durLabel(thisMonth - ym(FULL_TIME_START) + 1);
 
   // wide screens: lines run left to right
@@ -192,7 +103,6 @@
     s += `<path class="ln ln-int" d="M${X(.335)},${carY} L${X(.54)},${carY}"/>`;
     s += `<path class="ln ln-car" d="M${X(.54)},${carY} L${tX},${carY}"/>`;
     s += `<path class="ln ln-free" d="M${br},${carY} C ${br + 30},${carY} ${bEnd - 30},${frY} ${bEnd},${frY} L${tX},${frY}"/>`;
-    // education lane: labels above the line
     [['start', X(0), 'st-edu'], ['flu', X(.2), 'st-int'], ['grad', eEnd, 'st-edu']].forEach(([k, x, cls]) => {
       s += stn(k, circ(x, eduY, cls) + label(x - 8, eduY - 72, ST[k]));
     });
@@ -202,12 +112,12 @@
     s += stn('dp6', dia(X(.88), carY) + label(X(.88) - 8, carY + 32, ST.dp6));
     s += stn('vsc', circ(bEnd + 8, frY, 'st-free') + label(bEnd, frY + 32, ST.vsc));
     s += terminal(tX, carY, 'term', 11, true) + `<text class="sd" x="${tX + 20}" y="${carY - 4}">NOW</text><text class="ss" x="${tX + 20}" y="${carY + 12}">${sinceFullTime()}</text>`;
-    s += terminal(tX, frY, 'term-free', 9, false) + `<text class="sd" x="${tX + 20}" y="${frY + 4}" style="fill:var(--ink)">NOW</text>`;
+    s += terminal(tX, frY, 'term-free', 9, false) + `<text class="sd" x="${tX + 20}" y="${frY + 4}">NOW</text>`;
     return [H, s];
   }
 
   // phones and tablets: the same map, top (2021) to bottom (now)
-  function metroTall(W) {
+  function metroTall() {
     const lx = 104, eduX = 26, carX = 50, frX = 76;
     const y = { start: 34, flu: 112, int: 190, grad: 268, ft: 360, vsc: 450, dp8: 530, dp6: 608, now: 694 };
     const H = y.now + 40;
@@ -235,10 +145,15 @@
     if (!metro) return;
     const W = Math.round(metro.clientWidth);
     if (!W) return;
-    const [H, s] = W >= 1000 ? metroWide(W) : metroTall(W);
+    const [H, s] = W >= 1000 ? metroWide(W) : metroTall();
     metro.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="group" aria-label="Career line from 2021 to today: B.E. studies, Flutter internship, Data Analyst internship, full-time at Inkey IT Solutions, vscodelabs and two Microsoft certifications">${s}</svg>`;
   }
   drawMetro();
+  let lastWidth = innerWidth, resizeTimer;
+  addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { if (innerWidth !== lastWidth) { lastWidth = innerWidth; drawMetro(); } }, 150);
+  });
 
   // clicking a station jumps to its card and briefly highlights it
   if (metro) metro.addEventListener('click', e => {
@@ -251,10 +166,10 @@
     }
   });
 
-  /* ---------- live Power BI reports: open in a viewer (new tab on phones) ---------- */
+  /* ---------- live Power BI reports: on-page viewer (new tab on phones) ---------- */
   const viewer = $('#report-viewer');
-  $$('[data-embed]').forEach(btn => btn.addEventListener('click', () => {
-    const url = btn.dataset.embed, title = btn.dataset.title;
+  $$('[data-embed]').forEach(el => el.addEventListener('click', () => {
+    const url = el.dataset.embed, title = el.dataset.title;
     if (!viewer || typeof viewer.showModal !== 'function' || innerWidth < 640) { window.open(url, '_blank', 'noopener'); return; }
     $('.viewer-title', viewer).textContent = title;
     $('.viewer-ext', viewer).href = url;
@@ -268,12 +183,19 @@
     viewer.addEventListener('click', e => { if (e.target === viewer) viewer.close(); });
   }
 
-  /* ---------- Fig. 2: before / after slider ---------- */
-  const ba = $('#ba');
-  if (ba) {
-    const range = $('input', ba);
-    const set = () => ba.style.setProperty('--p', `${range.value}%`);
-    range.addEventListener('input', set);
-    set();
-  }
+  /* ---------- certifications: "Active" label + certificate viewer ---------- */
+  $$('.cert[data-expires]').forEach(c => {
+    const st = $('.cert-status', c);
+    if (st && new Date(`${c.dataset.expires}T23:59:59`) >= now) st.classList.add('on');
+  });
+  const lb = $('#lightbox');
+  $$('.cert-view').forEach(b => b.addEventListener('click', () => {
+    if (!lb || typeof lb.showModal !== 'function') { window.open(b.dataset.full, '_blank', 'noopener'); return; }
+    const img = $('img', lb);
+    img.src = b.dataset.full;
+    img.alt = b.dataset.alt;
+    $('.lb-cap', lb).textContent = b.dataset.alt;
+    lb.showModal();
+  }));
+  if (lb) lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
 })();

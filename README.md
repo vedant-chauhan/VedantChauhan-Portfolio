@@ -1,40 +1,48 @@
 # Vedant Chauhan — Portfolio
 
-Personal portfolio of a data analyst. Light, editorial "data story" theme:
-serif headlines, annotated charts and case studies instead of a wall of dashboards.
+Personal portfolio of a data analyst and Power BI developer. Light, editorial theme
+built to say a lot with few words: four headline numbers, live reports as proof, and
+one chart of the career.
 
 Plain HTML, CSS and JavaScript. No build step, no dependencies.
 
 ```
-index.html            all page content
-assets/css/style.css  theme (colours and fonts are at the top in :root)
-assets/js/main.js     scroll reveals, menu, Fig. 1 chart, Fig. 2 before/after slider
+index.html             all page content
+assets/css/style.css   theme (colours and fonts are at the top in :root)
+assets/js/main.js      menu, career-line map, report and certificate viewers
+assets/img/reports/    screenshots of the live Power BI reports
+assets/img/certs/      certificate images and the Microsoft badge
+assets/docs/           résumé PDF
 ```
+
+## Page order
+
+1. **Opening screen**: headline, one-line intro, four numbers
+2. **Work**: five live Power BI reports
+3. **Experience**: career-line map (Fig. 1) and two role cards
+4. **Credentials**: Microsoft certifications and blog articles
+5. **About**: short story and three tool groups
+6. **Contact**
 
 ## Editing content
 
-Everything you need to change is marked with `<!-- EDIT: ... -->` comments in `index.html`.
-The chart numbers in Fig. 1 are at the `// EDIT:` comment in `assets/js/main.js`.
+Every place to change is marked with an `<!-- EDIT: ... -->` comment in `index.html`.
 
+- **Headline numbers:** the `<ul class="stats">` list on the opening screen.
+- **Power BI reports:** copy one `<article class="report">` block. Put a screenshot in
+  `assets/img/reports/` and set both `data-embed` attributes to the report's public
+  "Publish to web" link. It opens in an on-page viewer on desktop, a new tab on phones.
+- **Career-line map:** the stations are the `ST` list under `// EDIT` in `assets/js/main.js`.
+  A station with `to` links to a card or section.
+- **Certifications:** copy one `<article class="cert">` block and set `data-expires`
+  (YYYY-MM-DD) so the "Active" label hides itself once it lapses.
+- **Writing:** one `<li>` per article, newest first.
 - **Photo:** add `assets/img/photo.jpg` and swap it in where the About section says so.
-- **Résumé:** add `assets/resume.pdf` and point the Résumé link at it.
-- **Power BI reports:** copy one `<article class="report">` block in the Work section. Put a
-  screenshot in `assets/img/reports/` and set both `data-embed` attributes to the report's public
-  "Publish to web" link (`https://app.powerbi.com/view?r=...`). It opens in an on-page viewer on
-  desktop and in a new tab on phones.
-- **Writing:** add one `<li>` per article in the Writing section, newest first.
-- **Certifications:** copy one `<article class="cert">` block (newest first), put the
-  certificate image in `assets/img/certs/`, and set `data-expires` so the "Active" label
-  hides itself once it lapses.
+
+Colour rule: red is only for the headline word, the key numbers and the career line.
 
 ## Preview locally
-
-Open `index.html` in a browser, or run:
 
 ```bash
 python3 -m http.server 8000
 ```
-
-## Publish on GitHub Pages
-
-Repository → Settings → Pages → Deploy from a branch → `main` / root.
