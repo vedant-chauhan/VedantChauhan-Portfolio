@@ -18,6 +18,11 @@ The chart numbers in Fig. 1 are at the `// EDIT:` comment in `assets/js/main.js`
 
 - **Photo:** add `assets/img/photo.jpg` and swap it in where the About section says so.
 - **Résumé:** add `assets/resume.pdf` and point the Résumé link at it.
+- **Power BI reports:** copy one `<article class="report">` block in the Work section. Put a
+  screenshot in `assets/img/reports/` and set both `data-embed` attributes to the report's public
+  "Publish to web" link (`https://app.powerbi.com/view?r=...`). It opens in an on-page viewer on
+  desktop and in a new tab on phones.
+- **Writing:** add one `<li>` per article in the Writing section, newest first.
 - **Certifications:** copy one `<article class="cert">` block (newest first), put the
   certificate image in `assets/img/certs/`, and set `data-expires` so the "Active" label
   hides itself once it lapses.

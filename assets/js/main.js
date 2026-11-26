@@ -251,6 +251,23 @@
     }
   });
 
+  /* ---------- live Power BI reports: open in a viewer (new tab on phones) ---------- */
+  const viewer = $('#report-viewer');
+  $$('[data-embed]').forEach(btn => btn.addEventListener('click', () => {
+    const url = btn.dataset.embed, title = btn.dataset.title;
+    if (!viewer || typeof viewer.showModal !== 'function' || innerWidth < 640) { window.open(url, '_blank', 'noopener'); return; }
+    $('.viewer-title', viewer).textContent = title;
+    $('.viewer-ext', viewer).href = url;
+    const frame = $('iframe', viewer);
+    frame.title = `${title} (live Power BI report)`;
+    frame.src = url;
+    viewer.showModal();
+  }));
+  if (viewer) {
+    viewer.addEventListener('close', () => { $('iframe', viewer).src = 'about:blank'; });
+    viewer.addEventListener('click', e => { if (e.target === viewer) viewer.close(); });
+  }
+
   /* ---------- Fig. 2: before / after slider ---------- */
   const ba = $('#ba');
   if (ba) {
