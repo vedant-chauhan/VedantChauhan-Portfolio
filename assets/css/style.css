@@ -49,9 +49,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
 .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
 
-/* ---------- reading progress ---------- */
-.progress{position:fixed;inset:0 0 auto 0;height:3px;z-index:60;pointer-events:none}
-.progress span{display:block;height:100%;background:var(--acc);transform-origin:left;transform:scaleX(0)}
 
 /* ---------- header ---------- */
 .site-head{position:sticky;top:0;z-index:50;background:rgba(245,240,230,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}

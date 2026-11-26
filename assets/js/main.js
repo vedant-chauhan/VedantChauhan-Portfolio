@@ -21,15 +21,9 @@
   const mark = $('.mark');
   if (mark) requestAnimationFrame(() => requestAnimationFrame(() => mark.classList.add('drawn')));
 
-  /* ---------- header state + reading progress ---------- */
+  /* ---------- header state ---------- */
   const head = $('.site-head');
-  const bar = $('.progress span');
-  const onScroll = () => {
-    const y = scrollY;
-    const max = document.documentElement.scrollHeight - innerHeight;
-    head.classList.toggle('scrolled', y > 8);
-    bar.style.transform = `scaleX(${max > 0 ? Math.min(1, y / max) : 0})`;
-  };
+  const onScroll = () => head.classList.toggle('scrolled', scrollY > 8);
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
