@@ -146,6 +146,15 @@
   });
   if (lb) lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
 
+  /* ---------- experience: durations, counted like LinkedIn (inclusive months) ---------- */
+  const ym = s => { const [y, m] = s.split('-').map(Number); return y * 12 + (m - 1); };
+  const thisMonth = now.getFullYear() * 12 + now.getMonth();
+  $$('.dur[data-start]').forEach(el => {
+    const months = (el.dataset.end ? ym(el.dataset.end) : thisMonth) - ym(el.dataset.start) + 1;
+    const y = Math.floor(months / 12), m = months % 12;
+    el.textContent = [y && `${y} yr${y > 1 ? 's' : ''}`, m && `${m} mo${m > 1 ? 's' : ''}`].filter(Boolean).join(' ');
+  });
+
   /* ---------- Fig. 2: before / after slider ---------- */
   const ba = $('#ba');
   if (ba) {
