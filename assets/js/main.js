@@ -63,59 +63,68 @@
     links.forEach((_, id) => { const s = document.getElementById(id); if (s) spy.observe(s); });
   }
 
-  /* ---------- Fig. 1: annotated bar chart ---------- */
-  // EDIT: replace with your own numbers
-  const DATA = [34, 38, 41, 45, 52, 30, 27, 26, 29, 33];
-  const LABELS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'];
-  const HIGHLIGHT = 5;                 // index of the bar the story is about
-  const NOTE = ['Pricing change', 'goes live here'];
+  /* ---------- Fig. 1: hours per sales review, by hand vs dashboard ---------- */
+  // EDIT: numbers from the case study, in hours
+  const ROWS = [
+    { label: 'By hand', min: 5, max: 10, value: '5–10 hours', tip: 'By hand: 5–10 hours of manual analysis' },
+    { label: 'Dashboard', min: 0, max: 10 / 60, value: 'under 10 minutes', tip: 'With the dashboard: under 10 minutes', hi: true },
+  ];
+  const AXIS_MAX = 10;
+
+  // horizontal bar anchored at the axis, rounded only at its far end
+  const hbar = (x, y, w, h, cls, round) => {
+    const r = round ? Math.min(4, w / 2, h / 2) : 0;
+    return `<path class="${cls}" d="M${x},${y} L${x + w - r},${y} Q${x + w},${y} ${x + w},${y + r} L${x + w},${y + h - r} Q${x + w},${y + h} ${x + w - r},${y + h} L${x},${y + h} Z"/>`;
+  };
 
   function drawChart() {
     const host = $('#fig1');
     if (!host) return;
     const W = Math.max(280, Math.round(host.clientWidth));
-    const H = Math.round(Math.min(330, Math.max(230, W * 0.52)));
-    const m = { l: 28, r: 6, t: 22, b: 28 };
-    const iw = W - m.l - m.r, ih = H - m.t - m.b, max = 60, n = DATA.length, bw = iw / n;
-    const gap = Math.max(5, bw * 0.24), w = bw - gap, r = Math.min(4, w / 2);
-    const y = v => m.t + ih * (1 - v / max);
-    const every = bw < 30 ? 2 : 1;
+    const narrow = W < 460;
+    const m = { l: narrow ? 80 : 96, r: narrow ? 12 : 20, t: 30, b: 30 };
+    const rowH = narrow ? 70 : 78, barH = narrow ? 24 : 28;
+    const H = m.t + ROWS.length * rowH + m.b;
+    const iw = W - m.l - m.r;
+    const x = v => m.l + iw * (v / AXIS_MAX);
 
-    let s = '';
-    for (let v = 0; v <= max; v += 20) {
-      s += `<line class="grid" x1="${m.l}" x2="${W - m.r}" y1="${y(v)}" y2="${y(v)}"/>`;
-      s += `<text x="${m.l - 6}" y="${y(v) + 4}" text-anchor="end">${v}</text>`;
+    let s = `<defs><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" class="hatch-bg"/><line x1="0" y1="0" x2="0" y2="7" class="hatch-ln"/></pattern></defs>`;
+    for (let v = 0; v <= AXIS_MAX; v += 2) {
+      s += `<line class="grid" x1="${x(v)}" x2="${x(v)}" y1="${m.t - 12}" y2="${H - m.b}"/>`;
+      s += `<text x="${x(v)}" y="${H - 10}" text-anchor="middle">${v}${v === AXIS_MAX ? ' h' : ''}</text>`;
     }
-    DATA.forEach((v, i) => {
-      const x = m.l + i * bw + gap / 2, top = y(v), base = y(0);
-      s += `<path class="bar${i === HIGHLIGHT ? ' hi' : ''}" data-i="${i}" d="M${x},${top + r} Q${x},${top} ${x + r},${top} L${x + w - r},${top} Q${x + w},${top} ${x + w},${top + r} L${x + w},${base} L${x},${base} Z"/>`;
-      if (i % every === 0) s += `<text x="${x + w / 2}" y="${H - 8}" text-anchor="middle">${LABELS[i]}</text>`;
+    ROWS.forEach((r, i) => {
+      const cy = m.t + i * rowH + rowH / 2, y0 = cy - barH / 2;
+      s += `<text class="rl" x="${m.l - 12}" y="${cy + 5}" text-anchor="end">${r.label}</text>`;
+      if (r.min > 0) {
+        // solid up to the low end of the range, hatched across the range (2px gap between)
+        s += hbar(x(0), y0, x(r.min) - x(0) - 1, barH, 'bar', false);
+        s += hbar(x(r.min) + 1, y0, x(r.max) - x(r.min) - 1, barH, 'bar range', true);
+        s += `<text class="vl" x="${x(r.max)}" y="${y0 - 8}" text-anchor="end">${r.value}</text>`;
+      } else {
+        const w = Math.max(5, x(r.max) - x(0));
+        s += hbar(x(0), y0, w, barH, 'bar hi', true);
+        s += `<text class="ann" x="${x(0) + w + 10}" y="${cy + 5}">${r.value}</text>`;
+      }
+      s += `<rect class="hit" data-i="${i}" x="${m.l}" y="${cy - rowH / 2}" width="${iw}" height="${rowH}" fill="transparent"/>`;
     });
-    s += `<line class="base" x1="${m.l}" x2="${W - m.r}" y1="${y(0)}" y2="${y(0)}"/>`;
+    s += `<line class="base" x1="${x(0)}" x2="${x(0)}" y1="${m.t - 12}" y2="${H - m.b}"/>`;
 
-    // annotation + hand-drawn arrow pointing at the highlighted bar
-    const cx = m.l + HIGHLIGHT * bw + bw / 2, ty = y(56);
-    s += `<text class="ann" x="${cx + 26}" y="${ty}">${NOTE[0]}</text><text class="ann" x="${cx + 26}" y="${ty + 18}">${NOTE[1]}</text>`;
-    const tipY = y(DATA[HIGHLIGHT]) - 8;
-    s += `<path class="arrow" d="M${cx + 22},${ty - 4} C${cx + 6},${ty} ${cx + 2},${ty + 20} ${cx + 2},${tipY}"/>`;
-    s += `<path class="arrow" d="M${cx + 2},${tipY} l-5,-8 M${cx + 2},${tipY} l6,-7"/>`;
+    host.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Bar chart: one sales review took 5 to 10 hours by hand, and under 10 minutes with the Power BI dashboard.">${s}</svg><div class="tip"></div>`;
 
-    host.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Bar chart of monthly active customers in thousands, January to October. It rises to 52 in May, then drops to 30 in June after a pricing change.">${s}</svg><div class="tip"></div>`;
-
-    const svg = $('svg', host), tip = $('.tip', host), bars = $$('.bar', svg);
-    const show = p => {
-      const i = +p.dataset.i, rect = svg.getBoundingClientRect(), k = rect.width / W;
-      bars.forEach(o => (o.style.opacity = o === p ? 1 : 0.5));
-      tip.innerHTML = `${LABELS[i]}<b>${DATA[i]}k customers</b>`;
-      tip.style.left = `${(m.l + i * bw + bw / 2) * k}px`;
-      tip.style.top = `${y(DATA[i]) * k}px`;
+    const svg = $('svg', host), tip = $('.tip', host);
+    const show = el => {
+      const i = +el.dataset.i, r = ROWS[i], k = svg.getBoundingClientRect().width / W;
+      const cy = m.t + i * rowH + rowH / 2;
+      tip.textContent = r.tip;
+      tip.style.left = `${Math.min(x(r.max), W - 120) * k}px`;
+      tip.style.top = `${(cy - barH / 2) * k}px`;
       tip.style.opacity = 1;
     };
-    const hide = () => { bars.forEach(o => (o.style.opacity = 1)); tip.style.opacity = 0; };
-    bars.forEach(p => {
-      p.addEventListener('pointerenter', () => show(p));
-      p.addEventListener('pointerdown', () => show(p));
-      p.addEventListener('pointerleave', hide);
+    $$('.hit', svg).forEach(h => {
+      h.addEventListener('pointerenter', () => show(h));
+      h.addEventListener('pointerdown', () => show(h));
+      h.addEventListener('pointerleave', () => (tip.style.opacity = 0));
     });
   }
   drawChart();
