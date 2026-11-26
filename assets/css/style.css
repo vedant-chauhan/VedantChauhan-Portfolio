@@ -323,3 +323,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .js .rv{opacity:1;transform:none}
   .scribble path{stroke-dashoffset:0}
 }
+
+/* ---------- experience: details + education ---------- */
+.role-points{margin-top:14px}
+.role-points li{max-width:46em}
+.role-stack{margin-top:12px;font-size:12px;letter-spacing:.03em;color:var(--ink-2)}
+.sub-label{margin-top:clamp(40px,5vw,60px);padding-bottom:12px;margin-bottom:22px;border-bottom:1px solid var(--ink)}
