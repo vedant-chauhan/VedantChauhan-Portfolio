@@ -92,11 +92,13 @@
   const terminal = (x, y, cls, r, pulse) => `${pulse && !reduce ? `<circle class="ring" cx="${x}" cy="${y}" r="${r}"/>` : ''}<circle class="${cls}" cx="${x}" cy="${y}" r="${r}"/><circle cx="${x}" cy="${y}" r="${r * 0.4}" fill="#fffdf7"/>`;
   const sinceFullTime = () => durLabel(thisMonth - ym(FULL_TIME_START) + 1);
 
-  // wide screens: lines run left to right
+  // wide screens: lines run left to right and only ever rise —
+  // education climbs into the career line from below, vscodelabs branches upward
   function metroWide(W) {
-    const H = 400, pl = 40, pr = 84, X = f => pl + (W - pl - pr) * f;
-    const eduY = 100, carY = 214, frY = 318;
+    const H = 410, pl = 40, pr = 84, X = f => pl + (W - pl - pr) * f;
+    const frY = 100, carY = 214, eduY = 318;            // top → bottom: freelance, career, education
     const label = (x, y, s) => `<text class="sd" x="${x}" y="${y}">${s.date}</text><text class="sn" x="${x}" y="${y + 19}">${s.name}</text><text class="ss" x="${x}" y="${y + 35}">${s.sub}</text>`;
+    const above = y => y - 66, below = y => y + 32;     // label positions relative to a line
     const eEnd = X(.42), merge = X(.5), br = X(.6), bEnd = X(.655), tX = X(1);
     let s = '';
     s += `<path class="ln ln-edu" d="M${X(0)},${eduY} L${eEnd},${eduY} C ${eEnd + 40},${eduY} ${merge - 40},${carY} ${merge},${carY}"/>`;
@@ -104,13 +106,13 @@
     s += `<path class="ln ln-car" d="M${X(.54)},${carY} L${tX},${carY}"/>`;
     s += `<path class="ln ln-free" d="M${br},${carY} C ${br + 30},${carY} ${bEnd - 30},${frY} ${bEnd},${frY} L${tX},${frY}"/>`;
     [['start', X(0), 'st-edu'], ['flu', X(.2), 'st-int'], ['grad', eEnd, 'st-edu']].forEach(([k, x, cls]) => {
-      s += stn(k, circ(x, eduY, cls) + label(x - 8, eduY - 72, ST[k]));
+      s += stn(k, circ(x, eduY, cls) + label(x - 8, below(eduY), ST[k]));
     });
-    s += stn('int', circ(X(.335), carY, 'st-int') + label(X(.335) - 8, carY + 32, ST.int));
-    s += stn('ft', circ(X(.54), carY, 'st-car') + label(X(.54) - 8, carY - 66, ST.ft));
-    s += stn('dp8', dia(X(.75), carY) + label(X(.75) - 8, carY - 66, ST.dp8));
-    s += stn('dp6', dia(X(.88), carY) + label(X(.88) - 8, carY + 32, ST.dp6));
-    s += stn('vsc', circ(bEnd + 8, frY, 'st-free') + label(bEnd, frY + 32, ST.vsc));
+    s += stn('int', circ(X(.335), carY, 'st-int') + label(X(.335) - 8, above(carY), ST.int));
+    s += stn('ft', circ(X(.54), carY, 'st-car') + label(X(.54) - 8, below(carY), ST.ft));
+    s += stn('dp8', dia(X(.75), carY) + label(X(.75) - 8, above(carY), ST.dp8));
+    s += stn('dp6', dia(X(.88), carY) + label(X(.88) - 8, below(carY), ST.dp6));
+    s += stn('vsc', circ(bEnd + 8, frY, 'st-free') + label(bEnd, frY - 64, ST.vsc));
     s += terminal(tX, carY, 'term', 11, true) + `<text class="sd" x="${tX + 20}" y="${carY - 4}">NOW</text><text class="ss" x="${tX + 20}" y="${carY + 12}">${sinceFullTime()}</text>`;
     s += terminal(tX, frY, 'term-free', 9, false) + `<text class="sd" x="${tX + 20}" y="${frY + 4}">NOW</text>`;
     return [H, s];
